@@ -22,7 +22,7 @@ html, body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     font-family: 'Oswald';
 }
@@ -48,16 +48,20 @@ p {
     height: 60rem;
     display: flex;
     color: white;
+    width: 60vw;
 }
 
 .panel {
     height: 100%;
-    width: 60vw;
 }
 
 .panel .container {
     padding: 10rem;
 }
+
+/*************************
+     *** WELCOME PANEL ***
+*************************/
 
 .WelcomePanel {
     background: linear-gradient(to top right, rgb(74, 31, 153), #D76D77, rgb(241, 153, 95));
@@ -65,8 +69,13 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .WelcomePanel h1 {
     margin-bottom: 3.5rem;
 }
+
+/*************************
+     *** PORTFOLIO PANEL ***
+*************************/
