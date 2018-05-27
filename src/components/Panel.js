@@ -5,8 +5,10 @@ import PortfolioPanel from './PortfolioPanel';
 const Panel = () => {
     return(
         <div className="panel-wrapper">
-          <WelcomePanel/>
-          <PortfolioPanel/>
+            <div>
+                <WelcomePanel/>
+                <PortfolioPanel/>
+            </div>
         </div>
     );
 }

@@ -15,16 +15,16 @@ html, body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, #F7F8F8 , #ACBB78);
-    
 }
 
 .App {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-family: 'Oswald';
+    overflow-y: hidden;
 }
 
 /*************************
@@ -35,9 +35,21 @@ h1 {
     font-size: 6rem;
 }
 
-p {
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+p, a {
     font-size: 2.2rem;
     margin: 1rem;
+}
+
+a {
+    color: white;
 }
 
 /*************************
@@ -45,10 +57,18 @@ p {
 *************************/
 
 .panel-wrapper {
+    transform: translateX(13vw);
+    padding-right: 13vw;
+}
+
+.panel-wrapper > div {
     height: 60rem;
     display: flex;
     color: white;
-    width: 60vw;
+    min-width: 130rem;
+    -webkit-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+    box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
 }
 
 .panel {
@@ -57,6 +77,14 @@ p {
 
 .panel .container {
     padding: 10rem;
+    display: flex;
+    width: 70vw;
+    min-width: 110rem;
+}
+
+.flex-cell {
+    flex: 1;
+    overflow: hidden;
 }
 
 /*************************
@@ -69,7 +97,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+
+.WelcomePanel .container {
+    flex-direction: column;
 }
 
 .WelcomePanel h1 {
@@ -79,3 +110,72 @@ p {
 /*************************
      *** PORTFOLIO PANEL ***
 *************************/
+
+.PortfolioPanel {
+    background: linear-gradient(to bottom left, #2c3e50, #3498db);
+    text-align: center;
+    display: flex;
+}
+
+.PortfolioPanel p {
+    font-size: 2rem;
+}
+
+.PortfolioPanel .container {
+    padding: 0;
+}
+
+.PortfolioPanel .portfolio-showcase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PortfolioPanel .reversed {
+    flex-direction: column-reverse;
+}
+
+.PortfolioPanel .portfolio-showcase:nth-child(1) {
+    background: #2c3e50;
+}
+
+.PortfolioPanel .portfolio-showcase:nth-child(2) {
+    background: #c55220;
+}
+
+.PortfolioPanel .portfolio-showcase:nth-child(3) {
+    background: red;
+}
+
+.PortfolioPanel .portfolio-showcase .img-container {
+    width: 100%;
+    height: 50%;
+}
+
+.PortfolioPanel .portfolio-showcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0 1.5rem;
+}
+
+.PortfolioPanel .portfolio-showcase .description {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+} 
+
+.PortfolioPanel .portfolio-intro {
+    flex: 0.7;
+}
+
+.PortfolioPanel .portfolio-intro .intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+    height: 100%;
+}
