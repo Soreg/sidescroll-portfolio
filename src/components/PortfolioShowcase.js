@@ -1,7 +1,10 @@
 import React from 'react';
+import PortfolioProject from './PortfolioProject';
 
 const PortfolioShowcase = ({ projects, closePortfolio }) => {
-    console.log(closePortfolio);
+    const portfolioProjects = projects.map((project, i) => (
+        <PortfolioProject project={project} key={i}/>
+    ));
     
     
     return(
@@ -9,6 +12,9 @@ const PortfolioShowcase = ({ projects, closePortfolio }) => {
             <div className="close-component" onClick={closePortfolio}>
                 <div></div>
                 <div></div>
+            </div>
+            <div className="projects">
+                { portfolioProjects }
             </div>
         </div>
     );
