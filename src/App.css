@@ -121,6 +121,10 @@ a {
     font-size: 2rem;
 }
 
+.PortfolioPanel p a {
+    margin: 0;
+}
+
 .PortfolioPanel .container {
     padding: 0;
 }
@@ -132,16 +136,14 @@ a {
     justify-content: space-between;
 }
 
-.PortfolioPanel .reversed {
-    flex-direction: column-reverse;
-}
-
 .PortfolioPanel .portfolio-showcase:nth-child(1) {
     background: #2c3e50;
 }
 
 .PortfolioPanel .portfolio-showcase:nth-child(2) {
     background: #c55220;
+    flex-direction: column-reverse;
+    
 }
 
 .PortfolioPanel .portfolio-showcase:nth-child(3) {
