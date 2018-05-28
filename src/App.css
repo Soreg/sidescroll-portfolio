@@ -143,11 +143,6 @@ a {
 .PortfolioPanel .portfolio-showcase:nth-child(2) {
     background: #c55220;
     flex-direction: column-reverse;
-    
-}
-
-.PortfolioPanel .portfolio-showcase:nth-child(3) {
-    background: red;
 }
 
 .PortfolioPanel .portfolio-showcase .img-container {

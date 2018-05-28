@@ -10,7 +10,9 @@ const PortfolioProject = ({ project }) => {
             <div className="description">
                 <h3>{project.name}</h3>
                 <p dangerouslySetInnerHTML={{__html: project.description}} />
-                <a href={project.link} target="_blank">To Project</a>
+                <div className="link-container">
+                    <a href={project.link} target="_blank">To Project</a>
+                </div>
             </div>
         </div>
     );
