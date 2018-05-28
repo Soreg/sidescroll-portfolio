@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #F7F8F8 , #ACBB78);
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Oswald';
+    overflow-y: hidden;
+}
+
+/*************************
+     *** TYPOGRAPHY ***
+*************************/
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+p, a {
+    font-size: 2.2rem;
+    margin: 1rem;
+}
+
+a {
+}
+
+/*************************
+     *** PANELS ***
+*************************/
+
+.panel-wrapper {
+    transform: translateX(13vw);
+    padding-right: 13vw;
+}
+
+.panel-wrapper > div {
+    height: 60rem;
+    display: flex;
+    color: white;
+    min-width: 130rem;
+    -webkit-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+    box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+}
+
+.panel {
+    height: 100%;
+}
+
+.panel .container {
+    padding: 10rem;
+    display: flex;
+    width: 70vw;
+    min-width: 110rem;
+}
+
+.flex-cell {
+    flex: 1;
+    overflow: hidden;
+}
+
+/*************************
+   *** WELCOME PANEL ***
+*************************/
+
+.WelcomePanel {
+    background: linear-gradient(to top right, rgb(74, 31, 153), #D76D77, rgb(241, 153, 95));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.WelcomePanel .container {
+    flex-direction: column;
+}
+
+.WelcomePanel h1 {
+    margin-bottom: 3.5rem;
+}
+
+/*************************
+  *** PORTFOLIO PANEL ***
+*************************/
+
+.PortfolioPanel {
+    background: linear-gradient(to bottom left, #2c3e50, #3498db);
+    text-align: center;
+    display: flex;
+}
+
+.PortfolioPanel p {
+    font-size: 2rem;
+}
+
+.PortfolioPanel p a {
+    margin: 0;
+}
+
+.PortfolioPanel .container {
+    padding: 0;
+    flex-direction: row-reverse;
+}
+
+.PortfolioPanel .portfolio-showcase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PortfolioPanel .portfolio-showcase:nth-child(2) {
+    flex-direction: column-reverse;
+}
+
+.PortfolioPanel .portfolio-showcase .img-container {
+    width: 100%;
+    height: 50%;
+}
+
+.PortfolioPanel .portfolio-showcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0 1.5rem;
+}
+
+.PortfolioPanel .portfolio-showcase .description {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+} 
+
+.PortfolioPanel .portfolio-intro {
+    flex: 0.7;
+}
+
+.PortfolioPanel .portfolio-intro .intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+    height: 100%;
+}
+
+/*************************
+*** PORTFOLIO SHOWCASE ***
+*************************/
+
+.PortfolioShowcase {
+    background: linear-gradient(to top left, #2c3e50, #3498db);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}
+
+.PortfolioShowcase .close-component {
+    width: 8rem;
+    height: 8rem;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+    cursor: pointer;
+    opacity: .6;
+    transition: all ease .6s;
+}
+
+.PortfolioShowcase .close-component:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+    position: absolute;
+    left: 35px;
+    content: ' ';
+    height: 100%;
+    width: .6rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.PortfolioShowcase .close-component:before {
+    transform: rotate(45deg);
+}
+
+.PortfolioShowcase .close-component:after {
+    transform: rotate(-45deg);
+}
+
+.PortfolioShowcase .projects {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.PortfolioShowcase .PortfolioProject {
+    min-width: 50%;
+    flex: 1;
+    height: 600px;
+    padding: 1rem;
+}
+
+.PortfolioShowcase .img-container {
+    margin-top: 1rem;
+    width: 100%;
+    height: 50%;
+}
+
+.PortfolioShowcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.PortfolioShowcase .description {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    margin-top: 1rem;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.PortfolioShowcase .link-container {
+    text-align: center;
+}
+
+.PortfolioShowcase h3 {
+    text-align: center;
+}
+
+.PortfolioShowcase p {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 4rem;
+}
+
+.PortfolioShowcase p a {
+    font-size: 2rem;
+}
+
+.PortfolioShowcase a {
+    text-align: center;
+}
+
+.PortfolioShowcase p a {
+    margin: 0;
+}
