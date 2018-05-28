@@ -91,14 +91,14 @@ class App extends Component {
     const up = e.deltaY < 0 ? true : false
 
     if(up) {
-      if(this.state.currentSlide >= 1) {
+      if(this.state.currentSlide >= 1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
           translateX: prevState.translateX + 65,
           currentSlide: prevState.currentSlide - 1
         })); 
       }
     } else {
-      if(this.state.currentSlide < panelAmount-1) {
+      if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
           translateX: prevState.translateX - 65,
           currentSlide: prevState.currentSlide + 1
