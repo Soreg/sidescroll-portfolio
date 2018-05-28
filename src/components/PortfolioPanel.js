@@ -1,7 +1,7 @@
 import React from 'react';
 import PortfolioProject from './PortfolioProject';
 
-const WelcomePanel = ({ showcaseProjects, openPortfolio }) => {
+const PortfolioPanel = ({ showcaseProjects, openPortfolio }) => {
 
     const projects = showcaseProjects.map((project, i) => (
         <PortfolioProject project={project} key={i}/>
@@ -28,4 +28,4 @@ const WelcomePanel = ({ showcaseProjects, openPortfolio }) => {
     );
 }
 
-export default WelcomePanel;
+export default PortfolioPanel;
