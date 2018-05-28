@@ -1,9 +1,13 @@
 import React from 'react';
 
 const PortfolioProject = ({ project }) => {
+
+    const style = {
+        background: project.backgroundColor
+    }
     
     return(
-        <div className="PortfolioProject flex-cell portfolio-showcase">
+        <div className="PortfolioProject flex-cell portfolio-showcase" style={style}>
             <div className="img-container">
                 <img src={project.image} alt="Portfolio project"/>
             </div>

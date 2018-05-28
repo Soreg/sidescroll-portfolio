@@ -18,20 +18,15 @@ class App extends Component {
         description: 'Voyage Clone is a clone of <a href="https://freebiesbug.com/psd-freebies/voyage-free-travel-template-psd/" target="_blank">this</a> website template, and it is the first in an on-going series of website clones.',
         link: 'http://sorendev-voyage-clone.surge.sh/',
         image: 'https://image.ibb.co/mH3svH/Voyage_Clone.png',
+        backgroundColor: '#3f5973'
       },
       {
         name: 'ReactJS Weather App',
         languages: ['ReactJS / JavaScript / CSS / Git'],
         description: "The ReactJS Weather App fetches today's weather from OpenWeatherMap",
         link: 'http://sorendev-react-weather-app.herokuapp.com/',
-        image: 'https://image.ibb.co/j2Z5cd/weather_app2.jpg'
-      },
-      {
-        name: 'DevMOP Chrome Extension',
-        languages: ['Html /', ' CSS /', ' Javascript /', ' jQuery /', ' Api /', ' JSON'],
-        description: 'DevMOP is a Chrome Extension aimed towards developers. The main goal is to keep developers focused and motivated by giving them a set of tools. DevMop was made in collaboration with <a href="https://github.com/fatizhf" target="_blank"><span className="text-shoutout">Fatima</span></a> and <a href="https://github.com/mussol" target="_blank"><span classname="text-shoutout">Mussol</span></a>',
-        link: 'https://chrome.google.com/webstore/detail/devmop/nbnbhmpifhipmfckccbhelhmbkccejbc',
-        image: 'https://image.ibb.co/iHDXAw/dev_Mop_Screen.png',
+        image: 'https://image.ibb.co/j2Z5cd/weather_app2.jpg',
+        backgroundColor: '#c55220'
       },
       {
         name: 'Visual Weather',
@@ -39,6 +34,15 @@ class App extends Component {
         description: 'Visual Weather is an on-going personal project. It displays the local weather to a set of 4 animated "weather cards", based on the city you are searching for.',
         link: 'https://visual-weather.surge.sh/',
         image: 'https://image.ibb.co/dXb2Aw/Visual.png',
+        backgroundColor: '#7c7e9b'
+      },
+      {
+        name: 'DevMOP Chrome Extension',
+        languages: ['Html /', ' CSS /', ' Javascript /', ' jQuery /', ' Api /', ' JSON'],
+        description: 'DevMOP is a Chrome Extension aimed towards developers. The main goal is to keep developers focused and motivated by giving them a set of tools. DevMop was made in collaboration with <a href="https://github.com/fatizhf" target="_blank"><span className="text-shoutout">Fatima</span></a> and <a href="https://github.com/mussol" target="_blank"><span classname="text-shoutout">Mussol</span></a>',
+        link: 'https://chrome.google.com/webstore/detail/devmop/nbnbhmpifhipmfckccbhelhmbkccejbc',
+        image: 'https://image.ibb.co/iHDXAw/dev_Mop_Screen.png',
+        backgroundColor: '#52708e'
       },
       {
         name: 'Famous Quotes',
@@ -46,6 +50,7 @@ class App extends Component {
         description: 'Famous Quotes is a small project made in collaboration with <a href="https://www.linkedin.com/in/alison-bearden-060938145/" target="_blank"><span className="text-shoutout">Alison</span></a>. It uses JSON to fetch a random quote from their library, split up in "Movie" and "Famous" categories.',
         link: 'http://famousquotes.surge.sh/',
         image: 'https://image.ibb.co/dcxsAw/Famous_Quotes.png',
+        backgroundColor: '#206ca0'
       },
       {
         name: 'Outdoor Haderslev',
@@ -53,6 +58,7 @@ class App extends Component {
         description: 'Outdoor Haderslev is a danish site, and was an assignment given to me at a local bootcamp. Outdoor Haderslev uses a free Wordpress theme, which has been customized with Html and Css.',
         link: 'http://www.sgcoding.media/outdoor-haderslev/',
         image: 'https://image.ibb.co/bVX9qw/Outdoor_Haderslev.png',
+        backgroundColor: '#85870c'
       }
     ],
     displayProjects: false

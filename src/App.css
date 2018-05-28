@@ -127,6 +127,7 @@ a {
 
 .PortfolioPanel .container {
     padding: 0;
+    flex-direction: row-reverse;
 }
 
 .PortfolioPanel .portfolio-showcase {
@@ -136,12 +137,7 @@ a {
     justify-content: space-between;
 }
 
-.PortfolioPanel .portfolio-showcase:nth-child(1) {
-    background: #2c3e50;
-}
-
 .PortfolioPanel .portfolio-showcase:nth-child(2) {
-    background: #c55220;
     flex-direction: column-reverse;
 }
 
@@ -187,6 +183,8 @@ a {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    top: 0;
+    left: 0;
 }
 
 .PortfolioShowcase .close-component {
@@ -228,18 +226,17 @@ a {
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
-    padding-top: 10rem;
-    padding-bottom: 2rem;
 }
 
 .PortfolioShowcase .PortfolioProject {
-    min-width: 33%;
+    min-width: 50%;
     flex: 1;
-    max-height: 600px;
+    height: 600px;
     padding: 1rem;
 }
 
 .PortfolioShowcase .img-container {
+    margin-top: 1rem;
     width: 100%;
     height: 50%;
 }
@@ -256,6 +253,7 @@ a {
     height: 40%;
     margin-top: 1rem;
     justify-content: space-between;
+    text-align: center;
 }
 
 .PortfolioShowcase .link-container {
@@ -269,6 +267,11 @@ a {
 .PortfolioShowcase p {
     font-size: 2rem;
     margin: 0;
+    padding: 0 4rem;
+}
+
+.PortfolioShowcase p a {
+    font-size: 2rem;
 }
 
 .PortfolioShowcase a {
