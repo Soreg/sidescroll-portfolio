@@ -7,7 +7,9 @@ import PortfolioShowcase from './components/PortfolioShowcase';
 class App extends Component {
   state = {
     projects: [],
-    displayProjects: undefined
+    displayProjects: undefined,
+    translateX: undefined,
+    currentSlide: undefined
   }
 
   componentWillMount() {
@@ -61,8 +63,14 @@ class App extends Component {
         backgroundColor: '#85870c'
       }
     ],
-    displayProjects: false
+    displayProjects: false,
+    translateX: 13,
+    currentSlide: 0
   });
+  }
+
+  componentDidMount() {
+    window.addEventListener('wheel', this.handleScroll);
   }
 
   openPortfolio = () => {
@@ -77,13 +85,34 @@ class App extends Component {
     })
   }
 
+  handleScroll = (e) => {
+    const panelAmount = document.querySelectorAll('.panel').length;
+    
+    const up = e.deltaY < 0 ? true : false
+
+    if(up) {
+      if(this.state.currentSlide >= 1) {
+        this.setState((prevState) => ({
+          translateX: prevState.translateX + 65,
+          currentSlide: prevState.currentSlide - 1
+        })); 
+      }
+    } else {
+      if(this.state.currentSlide < panelAmount-1) {
+        this.setState((prevState) => ({
+          translateX: prevState.translateX - 65,
+          currentSlide: prevState.currentSlide + 1
+        })); 
+      }
+    }
+  }
 
   render() {
     const showcaseProjects = this.state.projects.slice(0, 2);
     
     return (
       <div className="App">
-        <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio}/>
+        <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={this.state.projects} closePortfolio={this.closePortfolio}/> : null}
       </div>
     );

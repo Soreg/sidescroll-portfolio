@@ -26,6 +26,7 @@ html, body {
     align-items: center;
     font-family: 'Oswald';
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 /*************************
@@ -57,8 +58,8 @@ a {
 *************************/
 
 .panel-wrapper {
-    transform: translateX(13vw);
     padding-right: 13vw;
+    transition: all ease 1s;
 }
 
 .panel-wrapper > div {
