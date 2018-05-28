@@ -187,8 +187,45 @@ a {
 *************************/
 
 .PortfolioShowcase {
-    background: darkblue;
+    background: linear-gradient(to top left, #2c3e50, #3498db);
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
+
+.PortfolioShowcase .close-component {
+    width: 8rem;
+    height: 8rem;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    cursor: pointer;
+    opacity: .5;
+    transition: all ease .6s;
+}
+
+.PortfolioShowcase .close-component:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+    position: absolute;
+    left: 35px;
+    content: ' ';
+    height: 100%;
+    width: .6rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.PortfolioShowcase .close-component:before {
+    transform: rotate(45deg);
+}
+
+.PortfolioShowcase .close-component:after {
+    transform: rotate(-45deg);
+}
+
+

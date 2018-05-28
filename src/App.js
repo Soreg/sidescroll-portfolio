@@ -78,7 +78,7 @@ class App extends Component {
     return (
       <div className="App">
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio}/>
-        { this.state.displayProjects ? <PortfolioShowcase /> : null}
+        { this.state.displayProjects ? <PortfolioShowcase projects={this.state.projects} closePortfolio={this.closePortfolio}/> : null}
       </div>
     );
   }
