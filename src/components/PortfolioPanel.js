@@ -1,18 +1,16 @@
 import React from 'react';
 import PortfolioProject from './PortfolioProject';
 
-const WelcomePanel = ({ showcaseProjects }) => {
+const WelcomePanel = ({ showcaseProjects, openPortfolio }) => {
 
-    // const projects = showcaseProjects.map((project, i) => {
-    //     <PortfolioProject project={project} key={i}/>
-    // });
+    const projects = showcaseProjects.map((project, i) => (
+        <PortfolioProject project={project} key={i}/>
+    ))
 
     return(
         <div className="PortfolioPanel panel">
             <div className="container">
-            { showcaseProjects.map((project, i) => (
-                <PortfolioProject project={project} key={i}/>
-            ))}
+            { projects }
                 <div className="flex-cell portfolio-intro">
                     <div className="intro-container">
                     <h2>Portfolio</h2>
@@ -22,7 +20,7 @@ const WelcomePanel = ({ showcaseProjects }) => {
                         <p>A few of the project are also made during collaboration with other developers</p>
                         <p>-- Add more text</p>
                     </div>
-                    <a href="#">View All Projects</a>
+                    <a onClick={openPortfolio} href="#">View All Projects</a>
                     </div>
                 </div>
             </div>

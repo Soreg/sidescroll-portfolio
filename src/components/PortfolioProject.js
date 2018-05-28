@@ -1,8 +1,6 @@
 import React from 'react';
 
 const PortfolioProject = ({ project }) => {
-    console.log(project);
-    
     
     return(
         <div className="PortfolioProject flex-cell portfolio-showcase">

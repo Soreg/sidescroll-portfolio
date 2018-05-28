@@ -2,12 +2,13 @@ import React from 'react';
 import WelcomePanel from './WelcomePanel';
 import PortfolioPanel from './PortfolioPanel';
 
-const Panel = ({ showcaseProjects }) => {
+const Panel = ({ showcaseProjects, openPortfolio }) => {
+    
     return(
         <div className="panel-wrapper">
             <div>
                 <WelcomePanel/>
-                <PortfolioPanel showcaseProjects={showcaseProjects}/>
+                <PortfolioPanel showcaseProjects={showcaseProjects} openPortfolio={openPortfolio}/>
             </div>
         </div>
     );

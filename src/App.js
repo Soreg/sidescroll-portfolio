@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Panel from './components/Panel';
+import PortfolioShowcase from './components/PortfolioShowcase';
 
 class App extends Component {
   state = {
@@ -58,13 +59,26 @@ class App extends Component {
   });
   }
 
+  openPortfolio = () => {
+    this.setState({
+      displayProjects: true
+    })
+  }
+
+  closePortfolio = () => {
+    this.setState({
+      displayProjects: false
+    })
+  }
+
 
   render() {
     const showcaseProjects = this.state.projects.slice(0, 2);
     
     return (
       <div className="App">
-        <Panel showcaseProjects={showcaseProjects}/>
+        <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio}/>
+        { this.state.displayProjects ? <PortfolioShowcase /> : null}
       </div>
     );
   }
