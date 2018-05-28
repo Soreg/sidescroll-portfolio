@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 html {
@@ -49,7 +50,6 @@ p, a {
 }
 
 a {
-    color: white;
 }
 
 /*************************
@@ -197,11 +197,11 @@ a {
 .PortfolioShowcase .close-component {
     width: 8rem;
     height: 8rem;
-    position: absolute;
-    top: 2rem;
-    right: 1rem;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
     cursor: pointer;
-    opacity: .5;
+    opacity: .6;
     transition: all ease .6s;
 }
 
@@ -228,4 +228,58 @@ a {
     transform: rotate(-45deg);
 }
 
+.PortfolioShowcase .projects {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
 
+.PortfolioShowcase .PortfolioProject {
+    min-width: 33%;
+    flex: 1;
+    max-height: 600px;
+    padding: 1rem;
+}
+
+.PortfolioShowcase .img-container {
+    width: 100%;
+    height: 50%;
+}
+
+.PortfolioShowcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.PortfolioShowcase .description {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.PortfolioShowcase .link-container {
+    text-align: center;
+}
+
+.PortfolioShowcase h3 {
+    text-align: center;
+}
+
+.PortfolioShowcase p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.PortfolioShowcase a {
+    text-align: center;
+}
+
+.PortfolioShowcase p a {
+    margin: 0;
+}
