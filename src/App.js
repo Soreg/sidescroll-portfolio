@@ -64,7 +64,7 @@ class App extends Component {
       }
     ],
     displayProjects: false,
-    translateX: 13,
+    translateX: 15,
     currentSlide: 0
   });
   }
@@ -93,14 +93,14 @@ class App extends Component {
     if(up) {
       if(this.state.currentSlide >= 1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
-          translateX: prevState.translateX + 65,
+          translateX: prevState.translateX + 1351,
           currentSlide: prevState.currentSlide - 1
         })); 
       }
     } else {
       if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
-          translateX: prevState.translateX - 65,
+          translateX: prevState.translateX - 1351,
           currentSlide: prevState.currentSlide + 1
         })); 
       }

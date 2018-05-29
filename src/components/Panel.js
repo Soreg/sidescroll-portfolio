@@ -6,7 +6,7 @@ import ContactPanel from './ContactPanel';
 const Panel = ({ showcaseProjects, openPortfolio, moveLeft }) => {
 
     const styles = {
-        transform: `translateX(${moveLeft}vw)`
+        transform: `translateX(calc(15vw + ${moveLeft}px))`
     }
     
     return(
