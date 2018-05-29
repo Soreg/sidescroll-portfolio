@@ -14,16 +14,16 @@ const ContactPanel = () => {
                     <form>
                         <div>
                             <div>
-                                <label for="name">Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input type="text" name="name" id="name"/>
                             </div>
                             <div>
-                                <label for="email">E-mail</label>
+                                <label htmlFor="email">E-mail</label>
                                 <input type="text" name="email" id="email"/>
                             </div>
                         </div>
                         <div>
-                            <label for="message">Message</label>
+                            <label htmlFor="message">Message</label>
                             <textarea id="message"></textarea>
                         </div>
                         <button>SEND MESSAGE</button>
