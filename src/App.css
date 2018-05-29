@@ -288,7 +288,7 @@ a {
 *************************/
 
 .ContactPanel {
-    background: linear-gradient(to right, #464c9e, #1a1c9e);
+    background: linear-gradient(to top right, #464c9e, #1e418b);
 }
 
 .ContactPanel .container {
