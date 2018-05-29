@@ -89,6 +89,7 @@ class App extends Component {
     const panelAmount = document.querySelectorAll('.panel').length;
     
     const up = e.deltaY < 0 ? true : false
+    
 
     if(up) {
       if(this.state.currentSlide >= 1 && !this.state.displayProjects) {
@@ -96,6 +97,8 @@ class App extends Component {
           translateX: prevState.translateX + 1351,
           currentSlide: prevState.currentSlide - 1
         })); 
+        var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
+        prevTarget.style.opacity = ".3";
       }
     } else {
       if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects) {
@@ -103,8 +106,14 @@ class App extends Component {
           translateX: prevState.translateX - 1351,
           currentSlide: prevState.currentSlide + 1
         })); 
+        var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
+        prevTarget.style.opacity = ".3";
       }
     }
+
+    var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
+    target.style.opacity = "0";
+
   }
 
   render() {

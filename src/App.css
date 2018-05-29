@@ -74,6 +74,21 @@ a {
 
 .panel {
     height: 100%;
+    position: relative;
+}
+
+.panel .overlay {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .3;
+    transition: all ease 1s;
+}
+
+.panel:first-child .overlay {
+    opacity: 0;
 }
 
 .panel .container {

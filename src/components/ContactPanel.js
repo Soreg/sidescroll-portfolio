@@ -3,6 +3,7 @@ import React from 'react';
 const ContactPanel = () => {
     return(
         <div className="ContactPanel panel">
+        <div className="overlay"></div>
             <div className="container">
                 <div className="intro">
                     <div>

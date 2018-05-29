@@ -9,6 +9,7 @@ const PortfolioPanel = ({ showcaseProjects, openPortfolio }) => {
 
     return(
         <div className="PortfolioPanel panel">
+        <div className="overlay"></div>
             <div className="container">
             { projects }
                 <div className="flex-cell portfolio-intro">

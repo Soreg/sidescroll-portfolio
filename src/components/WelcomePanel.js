@@ -3,6 +3,7 @@ import React from 'react';
 const WelcomePanel = () => {
     return(
         <div className="WelcomePanel panel">
+        <div className="overlay"></div>
             <div className="container">
             <h1>Hello, my name is Soren</h1>
                 <p>Hello, and welcome to my wonderful world of programming! My name is Søren, and I am a passionate web developer. I love to stay up to date with new trends, and I always devote time to 'upgrade' myself. I know a variety of languages, mostly related to front-end development.</p>
