@@ -35,6 +35,10 @@ html, body {
   font-family: 'Oswald';
   overflow-y: hidden;
   overflow-x: hidden; }
+  @media only screen and (max-width: 1150px) {
+    .App {
+      height: auto;
+      overflow-y: auto; } }
 
 .panel-wrapper {
   backface-visibility: hidden;
@@ -43,10 +47,13 @@ html, body {
     height: 60rem;
     display: flex;
     color: white;
-    min-width: 130rem;
     -webkit-box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42);
     -moz-box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42);
     box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42); }
+    @media only screen and (max-width: 1150px) {
+      .panel-wrapper > div {
+        display: block;
+        height: auto; } }
   .panel-wrapper .panel {
     height: 100%;
     position: relative; }
@@ -60,6 +67,9 @@ html, body {
       opacity: .3;
       transition: all ease 1s;
       pointer-events: none; }
+      @media only screen and (max-width: 1150px) {
+        .panel-wrapper .panel .overlay {
+          opacity: 0; } }
     .panel-wrapper .panel:first-child .overlay {
       opacity: 0; }
     .panel-wrapper .panel .container {
@@ -85,6 +95,9 @@ html, body {
   align-items: center; }
   .WelcomePanel.panel .container {
     flex-direction: column; }
+    @media only screen and (max-width: 760px) {
+      .WelcomePanel.panel .container {
+        padding: 2.5rem; } }
   .WelcomePanel.panel h1 {
     margin-bottom: 3.5rem; }
 
@@ -99,16 +112,41 @@ html, body {
   .PortfolioPanel.panel .container {
     padding: 0;
     flex-direction: row-reverse; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .container {
+        flex-direction: column-reverse; } }
   .PortfolioPanel.panel .portfolio-showcase {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .portfolio-showcase {
+        flex-direction: row;
+        align-items: center;
+        flex: 1 1 auto; } }
+    @media only screen and (max-width: 760px) {
+      .PortfolioPanel.panel .portfolio-showcase {
+        flex-direction: column-reverse; } }
     .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
       flex-direction: column-reverse; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
+          flex-direction: row-reverse; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
+          flex-direction: column-reverse; } }
     .PortfolioPanel.panel .portfolio-showcase .img-container {
       width: 100%;
-      height: 50%; }
+      height: 50%;
+      flex: 1; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase .img-container {
+          height: 70%;
+          padding: 1.5rem 0; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-showcase .img-container {
+          padding-bottom: 2rem; } }
       .PortfolioPanel.panel .portfolio-showcase .img-container img {
         width: 100%;
         height: 100%;
@@ -119,15 +157,25 @@ html, body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 5rem; }
+      padding: 5rem;
+      flex: 1; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase .description {
+          padding: 2rem; } }
   .PortfolioPanel.panel .portfolio-intro {
     flex: 0.7; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .portfolio-intro {
+        flex: 1 1 auto; } }
     .PortfolioPanel.panel .portfolio-intro .intro-container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 5rem;
       height: 100%; }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-intro .intro-container {
+          padding: 2.5rem; } }
 
 .PortfolioShowcase {
   background: linear-gradient(to top left, #2c3e50, #3498db);
@@ -171,10 +219,32 @@ html, body {
       flex: 1;
       height: 600px;
       padding: 1rem; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioShowcase .projects .PortfolioProject {
+          min-width: 100%;
+          display: flex;
+          height: auto;
+          align-items: center;
+          justify-content: space-between; }
+          .PortfolioShowcase .projects .PortfolioProject:nth-child(odd) {
+            flex-direction: row-reverse; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioShowcase .projects .PortfolioProject {
+          flex-direction: column-reverse; }
+          .PortfolioShowcase .projects .PortfolioProject:nth-child(odd) {
+            flex-direction: column-reverse; } }
       .PortfolioShowcase .projects .PortfolioProject .img-container {
         margin-top: 1rem;
         width: 100%;
         height: 50%; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioShowcase .projects .PortfolioProject .img-container {
+            height: 90%;
+            flex: 1; } }
+        @media only screen and (max-width: 760px) {
+          .PortfolioShowcase .projects .PortfolioProject .img-container {
+            height: 50%;
+            flex: 1; } }
         .PortfolioShowcase .projects .PortfolioProject .img-container img {
           width: 100%;
           height: 100%;
@@ -186,6 +256,16 @@ html, body {
         margin-top: 1rem;
         justify-content: space-between;
         text-align: center; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioShowcase .projects .PortfolioProject .description {
+            height: 90%;
+            flex: 1;
+            padding: 2rem; } }
+        @media only screen and (max-width: 760px) {
+          .PortfolioShowcase .projects .PortfolioProject .description {
+            height: 50%;
+            flex: 1;
+            padding: 1.5rem; } }
       .PortfolioShowcase .projects .PortfolioProject .link-container {
         text-align: center; }
       .PortfolioShowcase .projects .PortfolioProject h3 {
@@ -205,6 +285,13 @@ html, body {
   .ContactPanel.panel .container {
     padding: 0;
     height: 100%; }
+    @media only screen and (max-width: 1150px) {
+      .ContactPanel.panel .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column; }
+        .ContactPanel.panel .container h2 {
+          text-align: center; } }
   .ContactPanel.panel .intro {
     padding-left: 3rem;
     flex: 1;
@@ -215,6 +302,9 @@ html, body {
       margin: 0;
       font-size: 2rem;
       margin-top: 4rem; }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .intro p {
+          margin-top: .5rem; } }
       .ContactPanel.panel .intro p span {
         color: #f5c378;
         font-style: italic; }
@@ -222,11 +312,18 @@ html, body {
       height: 70%;
       border-right: 1px solid white;
       padding-right: 3rem; }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .intro > div {
+          padding: 3rem 3rem 3rem 0;
+          border-right: none; } }
   .ContactPanel.panel .form {
     flex: 3;
     display: flex;
     align-items: center;
     padding: 5rem 3rem; }
+    @media only screen and (max-width: 1150px) {
+      .ContactPanel.panel .form {
+        padding: 0 3rem; } }
     .ContactPanel.panel .form form {
       display: flex;
       justify-content: space-between;
@@ -252,6 +349,10 @@ html, body {
         font-size: 1.8rem;
         padding: .5rem;
         margin-top: 1rem; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form input {
+            margin-top: .2rem;
+            margin-bottom: 1rem; } }
       .ContactPanel.panel .form form textarea {
         margin-top: 1rem;
         width: 100%;
@@ -262,6 +363,10 @@ html, body {
         font-size: 2.5rem;
         padding: .5rem;
         resize: none; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form textarea {
+            height: 15rem;
+            margin-top: .2rem; } }
       .ContactPanel.panel .form form label {
         font-size: 1.8rem; }
       .ContactPanel.panel .form form button {
@@ -274,6 +379,11 @@ html, body {
         border-radius: .5rem;
         opacity: .8;
         transition: all ease .5s; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form button {
+            margin: 1rem auto .5rem auto;
+            padding: 1.5rem 3rem;
+            opacity: .9; } }
         .ContactPanel.panel .form form button:hover {
           opacity: 1; }
   .ContactPanel.panel .social-icons {
@@ -290,6 +400,11 @@ html, body {
       flex-direction: column;
       justify-content: space-evenly;
       padding-left: 3rem; }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .social-icons > div {
+          flex-direction: row;
+          border-left: none;
+          padding-bottom: 3rem; } }
       .ContactPanel.panel .social-icons > div a .social-icon {
         font-size: 6rem;
         opacity: .7;
@@ -298,3 +413,7 @@ html, body {
           opacity: 1;
           text-shadow: .4rem .4rem 1rem #000;
           transform: translateY(-0.3rem); }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .social-icons > div a .social-icon {
+            margin: 0 .5rem;
+            opacity: .9; } }
