@@ -201,29 +201,32 @@ html, body {
     padding: 0;
     height: 100%; }
   .ContactPanel.panel .intro {
-    padding: 5rem 0 5rem 5rem;
+    padding-left: 3rem;
     flex: 1;
     height: 100%;
     display: flex;
     align-items: center; }
+    .ContactPanel.panel .intro p {
+      margin: 0;
+      font-size: 2rem;
+      margin-top: 4rem; }
+      .ContactPanel.panel .intro p span {
+        color: #f5c378;
+        font-style: italic; }
     .ContactPanel.panel .intro > div {
       height: 70%;
       border-right: 1px solid white;
-      padding-right: 5rem; }
-  .ContactPanel.panel p {
-    margin: 0;
-    font-size: 2rem;
-    margin-top: 4rem; }
+      padding-right: 3rem; }
   .ContactPanel.panel .form {
     flex: 3;
     display: flex;
     align-items: center;
-    padding: 5rem; }
+    padding: 5rem 3rem; }
     .ContactPanel.panel .form form {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      height: 70%; }
+      height: 80%; }
       .ContactPanel.panel .form form > div:first-child {
         width: 100%;
         display: flex;
@@ -250,7 +253,10 @@ html, body {
         background: transparent;
         border: 1px solid white;
         border-radius: .8rem;
-        height: 70%; }
+        height: 70%;
+        font-size: 2.5rem;
+        padding: .5rem;
+        resize: none; }
       .ContactPanel.panel .form form label {
         font-size: 1.8rem; }
       .ContactPanel.panel .form form button {
@@ -265,3 +271,25 @@ html, body {
         transition: all ease .5s; }
         .ContactPanel.panel .form form button:hover {
           opacity: 1; }
+  .ContactPanel.panel .social-icons {
+    padding-right: 3rem;
+    flex: .4;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .ContactPanel.panel .social-icons > div {
+      height: 70%;
+      border-left: 1px solid white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding-left: 3rem; }
+      .ContactPanel.panel .social-icons > div a .social-icon {
+        font-size: 6rem;
+        opacity: .7;
+        transition: all .5s; }
+        .ContactPanel.panel .social-icons > div a .social-icon:hover {
+          opacity: 1;
+          text-shadow: .4rem .4rem 1rem #000;
+          transform: translateY(-0.3rem); }

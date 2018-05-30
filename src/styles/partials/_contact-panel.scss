@@ -7,36 +7,41 @@
     }
 
     .intro {
-        padding: 5rem 0 5rem 5rem;
+        padding-left: 3rem;
         flex: 1;
         height: 100%;
         display: flex;
         align-items: center;
 
+        p {
+            margin: 0;
+            font-size: 2rem;
+            margin-top: 4rem;
+
+            span {
+                color: rgb(245, 195, 120);
+                font-style: italic;
+            }
+        }
+
         > div {
             height: 70%;
             border-right: 1px solid white;
-            padding-right: 5rem;
+            padding-right: 3rem;
         }
-    }
-
-    p {
-        margin: 0;
-        font-size: 2rem;
-        margin-top: 4rem;
     }
 
     .form {
         flex: 3;
         display: flex;
         align-items: center;
-        padding: 5rem;
+        padding: 5rem 3rem;
 
         form {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            height: 70%;
+            height: 80%;
 
             > div:first-child {
                 width: 100%;
@@ -73,6 +78,9 @@
                 border: 1px solid white;
                 border-radius: .8rem;
                 height: 70%;
+                font-size: 2.5rem;
+                padding: .5rem;
+                resize: none;
             }
 
             label {
@@ -92,6 +100,38 @@
 
                 &:hover {
                     opacity: 1;
+                }
+            }
+        }
+    }
+
+    .social-icons {
+        padding-right: 3rem;
+        flex: .4;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >div {
+            height: 70%;
+            border-left: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding-left: 3rem;
+
+            a {
+                .social-icon {
+                    font-size: 6rem;
+                    opacity: .7;
+                    transition: all .5s;
+
+                    &:hover {
+                        opacity: 1;
+                        text-shadow: .4rem .4rem 1rem #000;
+                        transform: translateY(-.3rem);
+                    }
                 }
             }
         }
