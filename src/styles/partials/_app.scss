@@ -27,4 +27,9 @@ html, body {
     font-family: 'Oswald';
     overflow-y: hidden;
     overflow-x: hidden;
+
+    @include break(1150) {
+        height: auto;
+        overflow-y: auto;
+    }
 }
