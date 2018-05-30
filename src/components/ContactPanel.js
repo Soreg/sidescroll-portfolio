@@ -1,4 +1,5 @@
 import React from 'react';
+import FontAwesome from 'react-fontawesome';
 
 const ContactPanel = () => {
     return(
@@ -30,6 +31,28 @@ const ContactPanel = () => {
                         </div>
                         <button>SEND MESSAGE</button>
                     </form>
+                </div>
+                <div className="social-icons">
+                    <div>
+                        <a className="social-link" href="https://github.com/Soreg" target="_blank">
+                        <FontAwesome 
+                            className="social-icon"
+                            name="github" 
+                        />
+                        </a>
+                        <a className="social-link" href="https://www.linkedin.com/in/soreg/" target="_blank">
+                        <FontAwesome 
+                            className="social-icon"
+                            name="linkedin" 
+                        />
+                        </a>
+                        <a className="social-link" href="https://twitter.com/SorenWebDev" target="_blank">
+                        <FontAwesome 
+                            className="social-icon"
+                            name="twitter" 
+                        />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
