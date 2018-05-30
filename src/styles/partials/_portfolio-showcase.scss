@@ -1,0 +1,102 @@
+.PortfolioShowcase {
+    background: linear-gradient(to top left, #2c3e50, #3498db);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+
+    .close-component {
+        width: 8rem;
+        height: 8rem;
+        position: fixed;
+        top: 1rem;
+        right: 3rem;
+        cursor: pointer;
+        opacity: .6;
+        transition: all ease .6s;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        &:before, &:after {
+            position: absolute;
+            left: 35px;
+            content: ' ';
+            height: 100%;
+            width: .6rem;
+            border-radius: 1rem;
+            background-color: white;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .projects {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+
+        .PortfolioProject {
+            min-width: 50%;
+            flex: 1;
+            height: 600px;
+            padding: 1rem;
+
+            .img-container {
+                margin-top: 1rem;
+                width: 100%;
+                height: 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .description {
+                display: flex;
+                flex-direction: column;
+                height: 40%;
+                margin-top: 1rem;
+                justify-content: space-between;
+                text-align: center;
+            }
+
+            .link-container {
+                text-align: center;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                font-size: 2rem;
+                margin: 0;
+                padding: 0 4rem;
+
+                a {
+                    font-size: 2rem;
+                    margin: 0;
+                    
+                }
+            }
+
+            a {
+                text-align: center;
+            }
+        }
+    }
+}
