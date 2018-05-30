@@ -87,6 +87,7 @@ class App extends Component {
 
   handleScroll = (e) => {
     const panelAmount = document.querySelectorAll('.panel').length;
+    const panelWidth = document.querySelector('.panel').offsetWidth;
     
     const up = e.deltaY < 0 ? true : false
     
@@ -94,7 +95,7 @@ class App extends Component {
     if(up) {
       if(this.state.currentSlide >= 1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
-          translateX: prevState.translateX + 1351,
+          translateX: prevState.translateX + panelWidth,
           currentSlide: prevState.currentSlide - 1
         })); 
         var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
@@ -103,7 +104,7 @@ class App extends Component {
     } else {
       if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects) {
         this.setState((prevState) => ({
-          translateX: prevState.translateX - 1351,
+          translateX: prevState.translateX - panelWidth,
           currentSlide: prevState.currentSlide + 1
         })); 
         var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
