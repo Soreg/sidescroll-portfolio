@@ -88,12 +88,13 @@ class App extends Component {
   handleScroll = (e) => {
     const panelAmount = document.querySelectorAll('.panel').length;
     const panelWidth = document.querySelector('.panel').offsetWidth;
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     
     const up = e.deltaY < 0 ? true : false
     
 
     if(up) {
-      if(this.state.currentSlide >= 1 && !this.state.displayProjects) {
+      if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
         this.setState((prevState) => ({
           translateX: prevState.translateX + panelWidth,
           currentSlide: prevState.currentSlide - 1
@@ -102,7 +103,7 @@ class App extends Component {
         prevTarget.style.opacity = ".3";
       }
     } else {
-      if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects) {
+      if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
         this.setState((prevState) => ({
           translateX: prevState.translateX - panelWidth,
           currentSlide: prevState.currentSlide + 1
