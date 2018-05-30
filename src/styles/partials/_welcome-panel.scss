@@ -7,6 +7,10 @@
 
     .container {
         flex-direction: column;
+
+        @include break(760) {
+            padding: 2.5rem;
+        }
     }
 
     h1 {
