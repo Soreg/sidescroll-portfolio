@@ -65,8 +65,13 @@ html, body {
     .panel-wrapper .panel .container {
       padding: 10rem;
       display: flex;
-      width: 70vw;
-      min-width: 100rem; }
+      width: 70vw; }
+      @media only screen and (max-width: 1700px) {
+        .panel-wrapper .panel .container {
+          width: 80vw; } }
+      @media only screen and (max-width: 1280px) {
+        .panel-wrapper .panel .container {
+          width: 100vw; } }
 
 .flex-cell {
   flex: 1;

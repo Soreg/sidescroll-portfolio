@@ -37,7 +37,14 @@
             padding: 10rem;
             display: flex;
             width: 70vw;
-            min-width: 100rem;
+
+            @include break(1700) {
+                width: 80vw;
+            }
+
+            @include break(1280) {
+                width: 100vw;
+            }
         }
     }
 }
