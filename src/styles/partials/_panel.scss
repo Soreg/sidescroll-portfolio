@@ -1,6 +1,7 @@
 .panel-wrapper {
-    padding-right: 13vw;
+    backface-visibility: hidden;
     transition: all ease 1s;
+    
 
     > div {
         height: 60rem;

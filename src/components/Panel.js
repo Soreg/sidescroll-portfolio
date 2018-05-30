@@ -4,9 +4,9 @@ import PortfolioPanel from './PortfolioPanel';
 import ContactPanel from './ContactPanel';
 
 const Panel = ({ showcaseProjects, openPortfolio, moveLeft }) => {
-
+    
     const styles = {
-        transform: `translateX(calc(15vw + ${moveLeft}px))`
+        transform: `translateX(calc((100vw - 70vw) / 2 + ${moveLeft}px))`
     }
     
     return(
