@@ -64,7 +64,7 @@ class App extends Component {
       }
     ],
     displayProjects: false,
-    translateX: 15,
+    translateX: 0,
     currentSlide: 0
   });
   }
