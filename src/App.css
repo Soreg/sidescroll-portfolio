@@ -373,7 +373,8 @@ html, body {
         height: 70%;
         font-size: 2.5rem;
         padding: .5rem;
-        resize: none; }
+        resize: none;
+        outline: none; }
         @media only screen and (max-width: 1150px) {
           .ContactPanel.panel .form form textarea {
             height: 15rem;
