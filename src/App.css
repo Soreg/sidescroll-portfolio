@@ -297,7 +297,7 @@ html, body {
         text-align: center; }
 
 .ContactPanel.panel {
-  background: linear-gradient(to top right, #464c9e, #1e418b); }
+  background: linear-gradient(to top right, #ec5454, #5e65cc); }
   .ContactPanel.panel .container {
     padding: 0;
     height: 100%; }
