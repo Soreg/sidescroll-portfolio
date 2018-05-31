@@ -94,6 +94,7 @@ class App extends Component {
     var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     
     const up = e.deltaY < 0 ? true : false
+    const down = e.deltaY > 0 ? true : false
     const arrowDirection = e.key;
 
     if(!this.state.recentlyScrolled) {
@@ -106,7 +107,7 @@ class App extends Component {
           var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
           prevTarget.style.opacity = ".3";
         }
-      } else if(!up || arrowDirection == "ArrowRight") {
+      } else if(down || arrowDirection == "ArrowRight") {
         if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
           this.setState((prevState) => ({
             translateX: prevState.translateX - panelWidth,
