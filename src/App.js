@@ -9,7 +9,8 @@ class App extends Component {
     projects: [],
     displayProjects: undefined,
     translateX: undefined,
-    currentSlide: undefined
+    currentSlide: undefined,
+    recentlyScrolled: undefined
   }
 
   componentWillMount() {
@@ -65,7 +66,8 @@ class App extends Component {
     ],
     displayProjects: false,
     translateX: 0,
-    currentSlide: 0
+    currentSlide: 0,
+    recentlyScrolled: false
   });
   }
 
@@ -91,26 +93,33 @@ class App extends Component {
     var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     
     const up = e.deltaY < 0 ? true : false
-    
 
-    if(up) {
-      if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
-        this.setState((prevState) => ({
-          translateX: prevState.translateX + panelWidth,
-          currentSlide: prevState.currentSlide - 1
-        })); 
-        var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
-        prevTarget.style.opacity = ".3";
+    if(!this.state.recentlyScrolled) {
+      if(up) {
+        if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
+          this.setState((prevState) => ({
+            translateX: prevState.translateX + panelWidth,
+            currentSlide: prevState.currentSlide - 1
+          })); 
+          var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
+          prevTarget.style.opacity = ".3";
+        }
+      } else {
+        if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
+          this.setState((prevState) => ({
+            translateX: prevState.translateX - panelWidth,
+            currentSlide: prevState.currentSlide + 1
+          })); 
+          var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
+          prevTarget.style.opacity = ".3";
+        }
       }
-    } else {
-      if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
-        this.setState((prevState) => ({
-          translateX: prevState.translateX - panelWidth,
-          currentSlide: prevState.currentSlide + 1
-        })); 
-        var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
-        prevTarget.style.opacity = ".3";
-      }
+      this.setState({
+        recentlyScrolled: true
+      });
+      setTimeout(() => {
+        this.setState({recentlyScrolled: false});
+      }, 800)
     }
 
     var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
