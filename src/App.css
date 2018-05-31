@@ -199,12 +199,22 @@ html, body {
       transform: scale(1.1); }
     .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
       position: absolute;
-      left: 35px;
+      left: 3.5rem;
       content: ' ';
       height: 100%;
       width: .6rem;
       border-radius: 1rem;
       background-color: white; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+          left: 5rem;
+          height: 80%;
+          width: .5rem; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+          left: 6rem;
+          height: 60%;
+          width: .3rem; } }
     .PortfolioShowcase .close-component:before {
       transform: rotate(45deg); }
     .PortfolioShowcase .close-component:after {
@@ -225,9 +235,10 @@ html, body {
           display: flex;
           height: auto;
           align-items: center;
-          justify-content: space-between; }
+          justify-content: space-between;
+          flex-direction: row-reverse; }
           .PortfolioShowcase .projects .PortfolioProject:nth-child(odd) {
-            flex-direction: row-reverse; } }
+            flex-direction: row; } }
       @media only screen and (max-width: 760px) {
         .PortfolioShowcase .projects .PortfolioProject {
           flex-direction: column-reverse; }
