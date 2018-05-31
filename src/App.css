@@ -308,7 +308,8 @@ html, body {
     flex: 1;
     height: 100%;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
     .ContactPanel.panel .intro p {
       margin: 0;
       font-size: 2rem;
