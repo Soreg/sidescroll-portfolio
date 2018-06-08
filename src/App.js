@@ -72,7 +72,7 @@ class App extends Component {
             // Adjust opacity
             const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide + scrollAmount];
             const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
-            prevOverlay.style.opacity =
+            prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
             
           }); 
@@ -91,7 +91,7 @@ class App extends Component {
 
             const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide - scrollAmount];
             var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
-            prevOverlay.style.opacity =
+            prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
           });
         }
