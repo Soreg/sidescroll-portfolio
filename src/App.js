@@ -54,26 +54,45 @@ class App extends Component {
     const barWidth = document.querySelector('.line').offsetWidth;
     const distanceBetween = barWidth / (menuCounter-1);
 
+    // if delay is gone
     if(!this.state.recentlyScrolled) {
       if(scrollDirection == "up") {
         if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
           this.setState((prevState) => ({
-            translateX: prevState.translateX + (panelWidth * scrollAmount),
             currentSlide: prevState.currentSlide - scrollAmount,
+            translateX: prevState.translateX + (panelWidth * scrollAmount),
             progressMove: prevState.progressMove - (distanceBetween * scrollAmount)
-          })); 
-          // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
-          // prevTarget.style.opacity = ".3";
+          }), () => {
+            // Runs after states are changed
+            const activeNav = document.querySelector('.active');
+            activeNav.classList.remove('active');
+            const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
+            currentNavItem.classList.add('active');
+            // Adjust opacity
+            const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide + scrollAmount];
+            const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
+            prevOverlay.style.opacity = ".3";
+            overlay.style.opacity = "0";
+            
+          }); 
         }
       } else if(scrollDirection == "down") {
         if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
           this.setState((prevState) => ({
-            translateX: prevState.translateX - (panelWidth * scrollAmount),
             currentSlide: prevState.currentSlide + scrollAmount,
+            translateX: prevState.translateX - (panelWidth * scrollAmount),
             progressMove: prevState.progressMove + (distanceBetween * scrollAmount)
-          })); 
-          // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
-          // prevTarget.style.opacity = ".3";
+          }), () => {
+            const activeNav = document.querySelector('.active');
+            activeNav.classList.remove('active');
+            const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
+            currentNavItem.classList.add('active');
+
+            const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide - scrollAmount];
+            var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
+            prevOverlay.style.opacity = ".3";
+            overlay.style.opacity = "0";
+          });
         }
       }
       this.setState({
@@ -82,11 +101,6 @@ class App extends Component {
       setTimeout(() => {
         this.setState({recentlyScrolled: false});
       }, 800)
-
-      const activeNav = document.querySelector('.active');
-      const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
-      activeNav.classList.remove('active');
-      currentNavItem.classList.add('active');
       
 
     }
