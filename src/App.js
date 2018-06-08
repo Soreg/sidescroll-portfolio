@@ -41,33 +41,29 @@ class App extends Component {
     })
   }
 
-  handleScroll = (e) => {
+  scrollMechanic = (scrollDirection, scrollAmount=1) => {
     const panelAmount = document.querySelectorAll('.panel').length;
     const panelWidth = document.querySelector('.panel').offsetWidth;
     var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    
-    const up = e.deltaY < 0 ? true : false
-    const down = e.deltaY > 0 ? true : false
-    const arrowDirection = e.key;
 
     if(!this.state.recentlyScrolled) {
-      if(up || arrowDirection == "ArrowLeft") {
+      if(scrollDirection == "up") {
         if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
           this.setState((prevState) => ({
-            translateX: prevState.translateX + panelWidth,
-            currentSlide: prevState.currentSlide - 1
+            translateX: prevState.translateX + (panelWidth * scrollAmount),
+            currentSlide: prevState.currentSlide - scrollAmount
           })); 
-          var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
-          prevTarget.style.opacity = ".3";
+          // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
+          // prevTarget.style.opacity = ".3";
         }
-      } else if(down || arrowDirection == "ArrowRight") {
+      } else if(scrollDirection == "down") {
         if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
           this.setState((prevState) => ({
-            translateX: prevState.translateX - panelWidth,
-            currentSlide: prevState.currentSlide + 1
+            translateX: prevState.translateX - (panelWidth * scrollAmount),
+            currentSlide: prevState.currentSlide + scrollAmount
           })); 
-          var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
-          prevTarget.style.opacity = ".3";
+          // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
+          // prevTarget.style.opacity = ".3";
         }
       }
       this.setState({
@@ -80,7 +76,32 @@ class App extends Component {
 
     var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
     target.style.opacity = "0";
+  }
 
+  handleScroll = (e) => {
+    let direction = "";
+    if(direction = e.deltaY < 0 || e.key == "ArrowLeft") {
+      direction = "up";
+    } else if(direction = e.deltaY > 0 || e.key == "ArrowRight") {
+      direction = "down";
+    }
+    this.scrollMechanic(direction);
+  }
+
+  handleNavigation = (e) => {
+    e.preventDefault();
+    const panelTo = e.currentTarget.attributes.getNamedItem('data-panel').value;
+    const panelsToSlide = Math.abs(panelTo - this.state.currentSlide);
+
+    let direction = "";
+
+    if(panelTo - this.state.currentSlide < 0) {
+      direction = "up";
+    } else if(panelTo - this.state.currentSlide > 0) {
+      direction = "down";
+    }
+
+    this.scrollMechanic(direction, panelsToSlide);
   }
 
   render() {
@@ -90,7 +111,7 @@ class App extends Component {
       <div className="App">
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
-        { !this.state.displayProjects ? <Navigation /> : null}
+        { !this.state.displayProjects ? <Navigation handleNavigation={this.handleNavigation}/> : null}
       </div>
     );
   }

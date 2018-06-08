@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Navigation = () => {
+const Navigation = ({ handleNavigation }) => {
     return(
         <div className="Navigation">
             <nav>
                 <ul>
                     <li>
-                        <a href="#" data-panel="1">
+                        <a href="#" data-panel="0" onClick={handleNavigation}>
                             <p>Welcome</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -14,7 +14,7 @@ const Navigation = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-panel="2">
+                        <a href="#" data-panel="1" onClick={handleNavigation}>
                             <p>Portfolio</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -22,7 +22,7 @@ const Navigation = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-panel="3">
+                        <a href="#" data-panel="2" onClick={handleNavigation}>
                             <p>Contact</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
