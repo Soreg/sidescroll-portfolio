@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   scrollMechanic = (scrollDirection, scrollAmount=1) => {
+    if(!this.state.displayProjects) {
     // Scroll mechanics
     const panelAmount = document.querySelectorAll('.panel').length;
     const panelWidth = document.querySelector('.panel').offsetWidth;
@@ -71,7 +72,7 @@ class App extends Component {
             // Adjust opacity
             const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide + scrollAmount];
             const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
-            prevOverlay.style.opacity = ".3";
+            prevOverlay.style.opacity =
             overlay.style.opacity = "0";
             
           }); 
@@ -90,7 +91,7 @@ class App extends Component {
 
             const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide - scrollAmount];
             var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
-            prevOverlay.style.opacity = ".3";
+            prevOverlay.style.opacity =
             overlay.style.opacity = "0";
           });
         }
@@ -103,6 +104,7 @@ class App extends Component {
       }, 800)
       
 
+    }
     }
 
     var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
