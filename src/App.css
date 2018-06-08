@@ -97,7 +97,8 @@ html, body {
   left: 50vw;
   bottom: 5rem;
   transform: translateX(-50%);
-  width: 50rem; }
+  width: 50rem;
+  z-index: 1; }
   .Navigation nav .line {
     position: relative;
     border: 0.1rem solid #9e0f0f;
@@ -255,7 +256,8 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 2; }
   .PortfolioShowcase .close-component {
     width: 8rem;
     height: 8rem;
