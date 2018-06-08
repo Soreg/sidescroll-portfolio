@@ -144,7 +144,7 @@ class App extends Component {
       <div className="App">
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
-        { !this.state.displayProjects ? <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/> : null}
+        <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/>
       </div>
     );
   }
