@@ -4,6 +4,7 @@ import './App.css';
 import Panel from './components/Panel';
 import PortfolioShowcase from './components/PortfolioShowcase';
 import projects from './fixtures/projects';
+import Navigation from './components/Navigation';
 
 class App extends Component {
   state = {
@@ -89,6 +90,7 @@ class App extends Component {
       <div className="App">
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
+        { !this.state.displayProjects ? <Navigation /> : null}
       </div>
     );
   }
