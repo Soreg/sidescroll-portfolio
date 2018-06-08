@@ -92,6 +92,61 @@ html, body {
   flex: 1;
   overflow: hidden; }
 
+.Navigation nav {
+  position: absolute;
+  left: 50vw;
+  bottom: 5rem;
+  transform: translateX(-50%);
+  width: 50rem; }
+  .Navigation nav .line {
+    position: relative;
+    border: .1rem solid black;
+    height: 2rem;
+    margin-top: 2rem;
+    border-radius: 3rem;
+    overflow: hidden; }
+    .Navigation nav .line:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: black;
+      transform: translateX(-100%);
+      transition: all ease .4s; }
+  .Navigation nav ul {
+    height: 3rem;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between; }
+    .Navigation nav ul li a {
+      margin: 0;
+      text-decoration: none; }
+      .Navigation nav ul li a p {
+        margin: 0;
+        color: black;
+        transition: all ease .4s; }
+      .Navigation nav ul li a .nav-point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 1.2rem;
+        width: 1.2rem;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 10rem;
+        transition: all ease .4s; }
+        .Navigation nav ul li a .nav-point .bullet {
+          width: .6rem;
+          height: .6rem;
+          background: transparent;
+          border-radius: 10rem;
+          transition: all ease .4s; }
+      .Navigation nav ul li a:hover p {
+        color: #aa1010; }
+      .Navigation nav ul li a:hover .nav-point .bullet {
+        background: #aa1010; }
+
 .WelcomePanel.panel {
   background: linear-gradient(to top right, #4a1f99, #D76D77, #f1995f);
   text-align: center;
