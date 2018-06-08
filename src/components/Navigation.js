@@ -8,6 +8,10 @@ const Navigation = ({ handleNavigation, progressMove }) => {
     return(
         <div className="Navigation">
             <nav>
+                <div className="close-component">
+                    <div></div>
+                    <div></div>
+                </div>
                 <ul>
                     <li>
                         <a className="active" href="#" data-panel="0" onClick={handleNavigation}>

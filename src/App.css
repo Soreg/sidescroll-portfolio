@@ -99,6 +99,50 @@ html, body {
   transform: translateX(-50%);
   width: 50rem;
   z-index: 1; }
+  @media only screen and (max-width: 1150px) {
+    .Navigation nav {
+      top: 0;
+      right: 0;
+      width: auto;
+      left: auto;
+      bottom: auto;
+      transform: translateX(0);
+      display: none; } }
+  .Navigation nav .close-component {
+    display: none;
+    transition: all ease .6s; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .close-component {
+        display: none; } }
+    .Navigation nav .close-component:hover {
+      opacity: 1;
+      transform: scale(1.1); }
+    .Navigation nav .close-component:before, .Navigation nav .close-component:after {
+      position: absolute;
+      content: ' ';
+      height: 100%;
+      width: .6rem;
+      border-radius: 1rem;
+      background-color: white; }
+      @media only screen and (max-width: 1150px) {
+        .Navigation nav .close-component:before, .Navigation nav .close-component:after {
+          width: 8rem;
+          height: 8rem;
+          position: fixed;
+          top: 1rem;
+          cursor: pointer;
+          opacity: .6;
+          height: 80%;
+          width: .5rem; } }
+      @media only screen and (max-width: 760px) {
+        .Navigation nav .close-component:before, .Navigation nav .close-component:after {
+          left: 6rem;
+          height: 60%;
+          width: .3rem; } }
+    .Navigation nav .close-component:before {
+      transform: rotate(45deg); }
+    .Navigation nav .close-component:after {
+      transform: rotate(-45deg); }
   .Navigation nav .line {
     position: relative;
     border: 0.1rem solid #9e0f0f;
@@ -106,6 +150,9 @@ html, body {
     margin-top: 2rem;
     border-radius: 3rem;
     overflow: hidden; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .line {
+        display: none; } }
     .Navigation nav .line .progress {
       content: "";
       position: absolute;
@@ -138,6 +185,9 @@ html, body {
         margin: 0 auto;
         border-radius: 10rem;
         transition: all ease .4s; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a .nav-point {
+            display: none; } }
         .Navigation nav ul li a .nav-point .bullet {
           width: .6rem;
           height: .6rem;
