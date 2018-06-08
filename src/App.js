@@ -12,7 +12,8 @@ class App extends Component {
     displayProjects: undefined,
     translateX: undefined,
     currentSlide: undefined,
-    recentlyScrolled: undefined
+    recentlyScrolled: undefined,
+    progressMove: undefined
   }
 
   componentWillMount() {
@@ -20,7 +21,8 @@ class App extends Component {
     displayProjects: false,
     translateX: 0,
     currentSlide: 0,
-    recentlyScrolled: false
+    recentlyScrolled: false,
+    progressMove: 0
   });
   }
 
@@ -42,16 +44,23 @@ class App extends Component {
   }
 
   scrollMechanic = (scrollDirection, scrollAmount=1) => {
+    // Scroll mechanics
     const panelAmount = document.querySelectorAll('.panel').length;
     const panelWidth = document.querySelector('.panel').offsetWidth;
     var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    // Navigation mechanics
+    const menuCounter = document.querySelectorAll('.Navigation li').length;
+    const barWidth = document.querySelector('.line').offsetWidth;
+    const distanceBetween = barWidth / (menuCounter-1);
 
     if(!this.state.recentlyScrolled) {
       if(scrollDirection == "up") {
         if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
           this.setState((prevState) => ({
             translateX: prevState.translateX + (panelWidth * scrollAmount),
-            currentSlide: prevState.currentSlide - scrollAmount
+            currentSlide: prevState.currentSlide - scrollAmount,
+            progressMove: prevState.progressMove - (distanceBetween * scrollAmount)
           })); 
           // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide + 1];
           // prevTarget.style.opacity = ".3";
@@ -60,7 +69,8 @@ class App extends Component {
         if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
           this.setState((prevState) => ({
             translateX: prevState.translateX - (panelWidth * scrollAmount),
-            currentSlide: prevState.currentSlide + scrollAmount
+            currentSlide: prevState.currentSlide + scrollAmount,
+            progressMove: prevState.progressMove + (distanceBetween * scrollAmount)
           })); 
           // var prevTarget = document.getElementsByClassName('overlay')[this.state.currentSlide - 1];
           // prevTarget.style.opacity = ".3";
@@ -72,6 +82,13 @@ class App extends Component {
       setTimeout(() => {
         this.setState({recentlyScrolled: false});
       }, 800)
+
+      const activeNav = document.querySelector('.active');
+      const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
+      activeNav.classList.remove('active');
+      currentNavItem.classList.add('active');
+      
+
     }
 
     var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
@@ -111,7 +128,7 @@ class App extends Component {
       <div className="App">
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
-        { !this.state.displayProjects ? <Navigation handleNavigation={this.handleNavigation}/> : null}
+        { !this.state.displayProjects ? <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/> : null}
       </div>
     );
   }

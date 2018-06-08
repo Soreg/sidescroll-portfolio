@@ -7,20 +7,21 @@
 
     .line {
         position: relative;
-        border: .1rem solid black;
+        border: .1rem solid rgb(158, 15, 15);
         height: 2rem;
         margin-top: 2rem;
         border-radius: 3rem;
         overflow: hidden;
 
-        &:before {
+        .progress {
             content: "";
             position: absolute;
             height: 100%;
             width: 100%;
-            background: black;
-            transform: translateX(-46rem);
-            transition: all ease .4s;
+            background: rgb(221, 65, 65);
+            left: -50rem;
+            overflow: hidden;
+            transition: all ease 1s;
         }
     }
 
@@ -62,7 +63,21 @@
                     }
                 }
 
-                &:hover {
+                &.active {
+                    p {
+                        transition: all ease 1s;
+                    }
+
+                    .nav-point {
+                        transition: all ease 1s;
+
+                        .bullet {
+                            transition: all ease 1s;
+                        }
+                    }
+                }
+
+                &:hover, &.active {
                     p {
                         color: rgb(170, 16, 16);
                     }

@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Navigation = ({ handleNavigation }) => {
+const Navigation = ({ handleNavigation, progressMove }) => {
+    let styles = {
+        transform: `translateX(calc(${progressMove}px))`
+    }
+
     return(
         <div className="Navigation">
             <nav>
                 <ul>
                     <li>
-                        <a href="#" data-panel="0" onClick={handleNavigation}>
+                        <a className="active" href="#" data-panel="0" onClick={handleNavigation}>
                             <p>Welcome</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -30,7 +34,9 @@ const Navigation = ({ handleNavigation }) => {
                         </a>
                     </li>
                 </ul>
-                <div className="line"></div>
+                <div className="line">
+                    <div className="progress" style={styles}></div>
+                </div>
             </nav>
         </div>
     )   
