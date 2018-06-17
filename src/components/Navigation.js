@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Navigation = ({ handleNavigation, progressMove }) => {
-    let styles = {
-        transform: `translateX(calc(${progressMove}px))`
+class Navigation extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            active: false
+        }
     }
 
-    return(
-        <div className="Navigation">
-            <nav>
-                <div className="close-component">
+    handleMenu(e) {
+        this.setState((prevState) => ({
+            active: !prevState.active
+        })); 
+        // Scroll to section - Desktop
+        if(e.currentTarget.nodeName === "A") {
+            this.props.handleNavigation(e);
+        }
+    }
+
+    render() {
+        let styles = {
+            transform: `translateX(calc(${this.props.progressMove}px))`
+        }
+        return (
+            <div className="Navigation">
+            <nav className={this.state.active ? "show" : null}>
+                <div className="hamburger-menu" onClick={this.handleMenu.bind(this)}>
+                    <div></div>
                     <div></div>
                     <div></div>
                 </div>
                 <ul>
                     <li>
-                        <a className="active" href="#" data-panel="0" onClick={handleNavigation}>
+                        <a className="active" href="#Welcome" data-panel="0" onClick={this.handleMenu.bind(this)}>
                             <p>Welcome</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -22,7 +41,7 @@ const Navigation = ({ handleNavigation, progressMove }) => {
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-panel="1" onClick={handleNavigation}>
+                        <a href="#Portfolio" data-panel="1" onClick={this.handleMenu.bind(this)}>
                             <p>Portfolio</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -30,7 +49,7 @@ const Navigation = ({ handleNavigation, progressMove }) => {
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-panel="2" onClick={handleNavigation}>
+                        <a href="#Contact" data-panel="2" onClick={this.handleMenu.bind(this)}>
                             <p>Contact</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -43,7 +62,8 @@ const Navigation = ({ handleNavigation, progressMove }) => {
                 </div>
             </nav>
         </div>
-    )   
+        )
+    }
 }
 
 export default Navigation;

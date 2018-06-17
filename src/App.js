@@ -57,6 +57,7 @@ class App extends Component {
 
     // if delay is gone
     if(!this.state.recentlyScrolled) {
+      
       if(scrollDirection == "up") {
         if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
           this.setState((prevState) => ({
@@ -69,12 +70,12 @@ class App extends Component {
             activeNav.classList.remove('active');
             const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
             currentNavItem.classList.add('active');
+
             // Adjust opacity
             const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide + scrollAmount];
             const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
             prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
-            
           }); 
         }
       } else if(scrollDirection == "down") {
@@ -122,7 +123,11 @@ class App extends Component {
   }
 
   handleNavigation = (e) => {
-    e.preventDefault();
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if(browserWidth > 1150) {
+      e.preventDefault();
+    }
+
     const panelTo = e.currentTarget.attributes.getNamedItem('data-panel').value;
     const panelsToSlide = Math.abs(panelTo - this.state.currentSlide);
 
