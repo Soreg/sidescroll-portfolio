@@ -106,8 +106,7 @@ html, body {
       width: auto;
       left: auto;
       bottom: auto;
-      transform: translateX(0);
-      display: none; } }
+      transform: translateX(0); } }
   .Navigation nav .close-component {
     display: none;
     transition: all ease .6s; }
