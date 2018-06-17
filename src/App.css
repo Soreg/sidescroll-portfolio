@@ -115,8 +115,8 @@ html, body {
         position: fixed;
         top: 2rem;
         right: 2rem;
-        width: 5rem;
-        height: 3rem;
+        width: 4rem;
+        height: 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between; } }
