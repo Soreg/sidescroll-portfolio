@@ -65,7 +65,8 @@ html, body {
         height: auto; } }
   .panel-wrapper .panel {
     height: 100%;
-    position: relative; }
+    position: relative;
+    padding: 0 0 0px !important; }
     .panel-wrapper .panel .overlay {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -132,7 +133,7 @@ html, body {
       .Navigation nav .hamburger-menu > div:first-child {
         transform-origin: 10px; }
       .Navigation nav .hamburger-menu > div:last-child {
-        transform-origin: 3px -3px; }
+        transform-origin: 1px -4px; }
   .Navigation nav .line {
     position: relative;
     border: 0.1rem solid #9e0f0f;
