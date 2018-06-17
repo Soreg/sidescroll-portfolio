@@ -3,7 +3,7 @@ import FontAwesome from 'react-fontawesome';
 
 const ContactPanel = () => {
     return(
-        <div className="ContactPanel panel">
+        <div id="Contact" className="ContactPanel panel">
         <div className="overlay"></div>
             <div className="container">
                 <div className="intro">
