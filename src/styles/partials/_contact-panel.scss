@@ -1,5 +1,5 @@
 .ContactPanel.panel {
-    background: linear-gradient(to top right, #464c9e, #1e418b);
+    background: linear-gradient(to top right, #ec5454, #5e65cc);
 
     .container {
         padding: 0;
@@ -22,6 +22,7 @@
         height: 100%;
         display: flex;
         align-items: center;
+        text-align: center;
 
         p {
             margin: 0;
@@ -32,9 +33,10 @@
                 margin-top: .5rem;
             }
 
-            span {
+            .contact-mail {
                 color: rgb(245, 195, 120);
                 font-style: italic;
+                text-decoration: none;
             }
         }
 
@@ -109,6 +111,7 @@
                 font-size: 2.5rem;
                 padding: .5rem;
                 resize: none;
+                outline: none;
 
                 @include break(1150) {
                     height: 15rem;

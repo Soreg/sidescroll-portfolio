@@ -1,10 +1,13 @@
 .panel-wrapper {
     backface-visibility: hidden;
     transition: all ease 1s;
+    align-self: flex-start;
     
 
     > div {
-        height: 60rem;
+        height: 80vh;
+        min-height: 45rem;
+        max-height: 60rem;
         display: flex;
         color: white;
         -webkit-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
@@ -20,6 +23,7 @@
     .panel {
         height: 100%;
         position: relative;
+        padding: 0 0 0px !important;
 
         .overlay {
             -webkit-backface-visibility: hidden;
