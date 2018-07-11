@@ -153,7 +153,7 @@
 
                 &.active {
                     p {
-                        color: rgb(170, 16, 16);
+                        color: #b50000;
 
                         @include break(1150) {
                             color: white;

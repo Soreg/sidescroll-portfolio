@@ -214,7 +214,7 @@ html, body {
         .Navigation nav ul li a.active .nav-point .bullet {
           transition: all ease 1s; }
       .Navigation nav ul li a.active p {
-        color: #aa1010; }
+        color: #b50000; }
         @media only screen and (max-width: 1150px) {
           .Navigation nav ul li a.active p {
             color: white; } }
