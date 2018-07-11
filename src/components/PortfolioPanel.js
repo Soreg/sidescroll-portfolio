@@ -20,7 +20,7 @@ const PortfolioPanel = ({ showcaseProjects, openPortfolio }) => {
                         <p>Most projects are front-end based, but some also takes advantage of some API's, like the weather app.</p>
                         <p>A few of the project are also made during collaboration with other developers</p>
                     </div>
-                    <a onClick={openPortfolio} href="#">View All Projects</a>
+                    <p className="link" onClick={openPortfolio}>View All Projects</p>
                     </div>
                 </div>
             </div>
