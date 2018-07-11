@@ -52,7 +52,7 @@ class App extends Component {
     // if delay is gone
     if(!this.state.recentlyScrolled) {
       
-      if(scrollDirection == "up") {
+      if(scrollDirection === "up") {
         if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
           this.setState((prevState) => ({
             currentSlide: prevState.currentSlide - scrollAmount,
@@ -72,7 +72,7 @@ class App extends Component {
             overlay.style.opacity = "0";
           }); 
         }
-      } else if(scrollDirection == "down") {
+      } else if(scrollDirection === "down") {
         if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
           this.setState((prevState) => ({
             currentSlide: prevState.currentSlide + scrollAmount,
@@ -108,9 +108,9 @@ class App extends Component {
 
   handleScroll = (e) => {
     let direction = "";
-    if(direction = e.deltaY < 0 || e.key == "ArrowLeft") {
+    if(e.deltaY < 0 || e.key === "ArrowLeft") {
       direction = "up";
-    } else if(direction = e.deltaY > 0 || e.key == "ArrowRight") {
+    } else if(e.deltaY > 0 || e.key === "ArrowRight") {
       direction = "down";
     }
     this.scrollMechanic(direction);
