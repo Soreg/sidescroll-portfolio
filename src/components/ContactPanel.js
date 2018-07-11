@@ -34,19 +34,19 @@ const ContactPanel = () => {
                 </div>
                 <div className="social-icons">
                     <div>
-                        <a className="social-link" href="https://github.com/Soreg" target="_blank">
+                        <a className="social-link" href="https://github.com/Soreg" target="_blank" rel="noopener noreferrer">
                         <FontAwesome 
                             className="social-icon"
                             name="github" 
                         />
                         </a>
-                        <a className="social-link" href="https://www.linkedin.com/in/soreg/" target="_blank">
+                        <a className="social-link" href="https://www.linkedin.com/in/soreg/" target="_blank"rel="noopener noreferrer">
                         <FontAwesome 
                             className="social-icon"
                             name="linkedin" 
                         />
                         </a>
-                        <a className="social-link" href="https://twitter.com/SorenWebDev" target="_blank">
+                        <a className="social-link" href="https://twitter.com/SorenWebDev" target="_blank" rel="noopener noreferrer">
                         <FontAwesome 
                             className="social-icon"
                             name="twitter" 

@@ -323,6 +323,10 @@ html, body {
       @media only screen and (max-width: 760px) {
         .PortfolioPanel.panel .portfolio-intro .intro-container {
           padding: 2.5rem; } }
+    .PortfolioPanel.panel .portfolio-intro .link {
+      font-size: 2.2rem;
+      text-decoration: underline;
+      cursor: pointer; }
 
 .PortfolioShowcase {
   background: linear-gradient(to top left, #2c3e50, #3498db);
