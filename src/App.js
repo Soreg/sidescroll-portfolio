@@ -9,21 +9,11 @@ import Navigation from './components/Navigation';
 class App extends Component {
   state = {
     projects: [],
-    displayProjects: undefined,
-    translateX: undefined,
-    currentSlide: undefined,
-    recentlyScrolled: undefined,
-    progressMove: undefined
-  }
-
-  componentWillMount() {
-    this.setState({
     displayProjects: false,
     translateX: 0,
     currentSlide: 0,
     recentlyScrolled: false,
     progressMove: 0
-  });
   }
 
   componentDidMount() {
