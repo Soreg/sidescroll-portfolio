@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      helmetTitle: 'About',
       projects: [],
       displayProjects: false,
       translateX: 0,
@@ -18,11 +19,20 @@ class App extends Component {
       recentlyScrolled: false,
       progressMove: 0
     }
+
+    this.updateHelmet = this.updateHelmet.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('wheel', this.handleScroll);
     window.addEventListener('keydown', this.handleScroll);
+  }
+
+  updateHelmet = () => {
+    const title = document.querySelector('.Navigation .active').dataset.title;
+    this.setState({
+      helmetTitle: title
+    });
   }
 
   openPortfolio = () => {
@@ -91,14 +101,13 @@ class App extends Component {
           });
         }
       }
+      this.updateHelmet();
       this.setState({
         recentlyScrolled: true
       });
       setTimeout(() => {
         this.setState({recentlyScrolled: false});
       }, 800)
-      
-
     }
     }
 
