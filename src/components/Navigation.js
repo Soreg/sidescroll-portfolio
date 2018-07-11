@@ -7,6 +7,8 @@ class Navigation extends Component {
         this.state = {
             active: false
         }
+
+        this.lineRef = React.createRef();
     }
 
     handleMenu(e) {
@@ -20,9 +22,13 @@ class Navigation extends Component {
     }
 
     render() {
+        const barWidth = this.lineRef.current ? this.lineRef.current.offsetWidth : 500;
+        const moveAmount = (this.props.progressMove !== 0 && this.props.progressMove !== barWidth) ? this.props.progressMove + 7 : this.props.progressMove;
+
         let styles = {
-            transform: `translateX(calc(${this.props.progressMove}px))`
+            transform: `translateX(calc(${moveAmount}px))`
         }
+        
         return (
             <div className="Navigation">
             <nav className={this.state.active ? "show" : null}>
@@ -57,7 +63,7 @@ class Navigation extends Component {
                         </a>
                     </li>
                 </ul>
-                <div className="line">
+                <div className="line" ref={this.lineRef}>
                     <div className="progress" style={styles}></div>
                 </div>
             </nav>
