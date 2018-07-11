@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      helmetTitle: 'About',
+      helmetTitle: '',
       projects: [],
       displayProjects: false,
       translateX: 0,
@@ -27,13 +27,22 @@ class App extends Component {
   componentDidMount() {
     window.addEventListener('wheel', this.handleScroll);
     window.addEventListener('keydown', this.handleScroll);
+    this.updateHelmet();
   }
 
   updateHelmet = () => {
-    const title = document.querySelector('.Navigation .active').dataset.title;
-    this.setState({
-      helmetTitle: title
-    });
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if(browserWidth > 1150) {
+      const title = document.querySelector('.Navigation .active').dataset.title;
+      this.setState({
+        helmetTitle: title
+      });
+    }
+    else {
+      this.setState({
+        helmetTitle: 'SorenDev'
+      });
+    }
   }
 
   openPortfolio = () => {
@@ -81,6 +90,8 @@ class App extends Component {
             const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
             prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
+            this.updateHelmet();
+
           }); 
         }
       } else if(scrollDirection === "down") {
@@ -99,10 +110,11 @@ class App extends Component {
             var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
             prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
+            this.updateHelmet();
+
           });
         }
       }
-      this.updateHelmet();
       this.setState({
         recentlyScrolled: true
       });
@@ -152,7 +164,7 @@ class App extends Component {
     return (
       <div className="App">
       <Helmet>
-        <title>{this.state.helmetTitle} - SorenDev</title>
+        <title>{this.state.helmetTitle === 'SorenDev' ? this.state.helmetTitle : this.state.helmetTitle + ' - SorenDev'}</title>
       </Helmet>
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
