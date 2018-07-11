@@ -151,6 +151,9 @@ class App extends Component {
     
     return (
       <div className="App">
+      <Helmet>
+        <title>{this.state.helmetTitle} - SorenDev</title>
+      </Helmet>
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
         <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/>
