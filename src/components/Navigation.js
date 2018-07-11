@@ -39,7 +39,7 @@ class Navigation extends Component {
                 </div>
                 <ul>
                     <li>
-                        <a className="active" href="#Welcome" data-panel="0" onClick={this.handleMenu.bind(this)}>
+                        <a className="active" href="#Welcome" data-panel="0" data-title="About" onClick={this.handleMenu.bind(this)}>
                             <p>Welcome</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -47,7 +47,7 @@ class Navigation extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#Portfolio" data-panel="1" onClick={this.handleMenu.bind(this)}>
+                        <a href="#Portfolio" data-panel="1" data-title="Portfolio" onClick={this.handleMenu.bind(this)}>
                             <p>Portfolio</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>
@@ -55,7 +55,7 @@ class Navigation extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#Contact" data-panel="2" onClick={this.handleMenu.bind(this)}>
+                        <a href="#Contact" data-panel="2" data-title="Contact" onClick={this.handleMenu.bind(this)}>
                             <p>Contact</p>
                             <div className="nav-point">
                                 <div className="bullet"></div>

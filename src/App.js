@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import './App.css';
 
 import Panel from './components/Panel';
@@ -11,6 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      helmetTitle: '',
       projects: [],
       displayProjects: false,
       translateX: 0,
@@ -18,11 +20,29 @@ class App extends Component {
       recentlyScrolled: false,
       progressMove: 0
     }
+
+    this.updateHelmet = this.updateHelmet.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('wheel', this.handleScroll);
     window.addEventListener('keydown', this.handleScroll);
+    this.updateHelmet();
+  }
+
+  updateHelmet = () => {
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if(browserWidth > 1150) {
+      const title = document.querySelector('.Navigation .active').dataset.title;
+      this.setState({
+        helmetTitle: title
+      });
+    }
+    else {
+      this.setState({
+        helmetTitle: 'SorenDev'
+      });
+    }
   }
 
   openPortfolio = () => {
@@ -70,6 +90,8 @@ class App extends Component {
             const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
             prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
+            this.updateHelmet();
+
           }); 
         }
       } else if(scrollDirection === "down") {
@@ -88,6 +110,8 @@ class App extends Component {
             var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
             prevOverlay.style.opacity = ".3";
             overlay.style.opacity = "0";
+            this.updateHelmet();
+
           });
         }
       }
@@ -97,8 +121,6 @@ class App extends Component {
       setTimeout(() => {
         this.setState({recentlyScrolled: false});
       }, 800)
-      
-
     }
     }
 
@@ -141,6 +163,9 @@ class App extends Component {
     
     return (
       <div className="App">
+      <Helmet>
+        <title>{this.state.helmetTitle === 'SorenDev' ? this.state.helmetTitle : this.state.helmetTitle + ' - SorenDev'}</title>
+      </Helmet>
         <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
         { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
         <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/>
