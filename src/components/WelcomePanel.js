@@ -2,7 +2,7 @@ import React from 'react';
 
 const WelcomePanel = () => {
     return(
-        <div className="WelcomePanel panel">
+        <div id="Welcome" className="WelcomePanel panel">
         <div className="overlay"></div>
             <div className="container">
             <h1>Hello, my name is Soren</h1>

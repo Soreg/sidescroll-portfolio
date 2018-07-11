@@ -19,7 +19,11 @@ p, a {
   color: white; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%; }
+
+body {
+  min-height: 100%; }
 
 html, body {
   width: 100%;
@@ -33,7 +37,8 @@ html, body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
   font-family: 'Oswald';
   overflow: hidden; }
@@ -45,7 +50,8 @@ html, body {
 
 .panel-wrapper {
   backface-visibility: hidden;
-  transition: all ease 1s; }
+  transition: all ease 1s;
+  align-self: flex-start; }
   .panel-wrapper > div {
     height: 80vh;
     min-height: 45rem;
@@ -61,7 +67,8 @@ html, body {
         height: auto; } }
   .panel-wrapper .panel {
     height: 100%;
-    position: relative; }
+    position: relative;
+    padding: 0 0 0px !important; }
     .panel-wrapper .panel .overlay {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -91,6 +98,137 @@ html, body {
 .flex-cell {
   flex: 1;
   overflow: hidden; }
+
+.Navigation nav {
+  left: 50vw;
+  bottom: 5rem;
+  width: 50rem;
+  z-index: 1; }
+  @media only screen and (max-width: 1150px) {
+    .Navigation nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      left: auto;
+      bottom: auto;
+      transform: translateX(0); } }
+  .Navigation nav .hamburger-menu {
+    z-index: 3;
+    display: none; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .hamburger-menu {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 4rem;
+        height: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; } }
+    .Navigation nav .hamburger-menu > div {
+      width: 100%;
+      height: .2rem;
+      background: white;
+      transition: all ease .5s; }
+      .Navigation nav .hamburger-menu > div:first-child {
+        transform-origin: 10px; }
+      .Navigation nav .hamburger-menu > div:last-child {
+        transform-origin: 1px -4px; }
+  .Navigation nav .line {
+    position: relative;
+    border: 0.1rem solid #9e0f0f;
+    height: 2rem;
+    margin-top: 2rem;
+    border-radius: 3rem;
+    overflow: hidden; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .line {
+        display: none; } }
+    .Navigation nav .line .progress {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #dd4141;
+      left: -50rem;
+      overflow: hidden;
+      transition: all ease 1s; }
+  .Navigation nav ul {
+    height: 3rem;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav ul {
+        position: absolute;
+        top: 0;
+        left: -100vw;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(to top right, #ec5454, #5e65cc);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: all ease .5s; }
+        .Navigation nav ul li {
+          margin: .5rem 0; } }
+    .Navigation nav ul li a {
+      margin: 0;
+      text-decoration: none; }
+      .Navigation nav ul li a p {
+        margin: 0;
+        color: white;
+        transition: all ease .4s; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a p {
+            font-size: 3rem; } }
+      .Navigation nav ul li a .nav-point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 1.2rem;
+        width: 1.2rem;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 10rem;
+        transition: all ease .4s; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a .nav-point {
+            display: none; } }
+        .Navigation nav ul li a .nav-point .bullet {
+          width: .6rem;
+          height: .6rem;
+          background: transparent;
+          border-radius: 10rem;
+          transition: all ease .4s; }
+      .Navigation nav ul li a.active p {
+        transition: all ease 1s; }
+      .Navigation nav ul li a.active .nav-point {
+        transition: all ease 1s; }
+        .Navigation nav ul li a.active .nav-point .bullet {
+          transition: all ease 1s; }
+      .Navigation nav ul li a.active p {
+        color: #b50000; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a.active p {
+            color: white; } }
+      .Navigation nav ul li a.active .nav-point .bullet {
+        background: #aa1010; }
+  .Navigation nav.show .hamburger-menu div:first-child {
+    transform: rotate(45deg); }
+  .Navigation nav.show .hamburger-menu div:nth-child(2) {
+    opacity: 0; }
+  .Navigation nav.show .hamburger-menu div:last-child {
+    transform: rotate(-45deg); }
+  .Navigation nav.show ul {
+    pointer-events: all;
+    opacity: 1; }
 
 .WelcomePanel.panel {
   background: linear-gradient(to top right, #4a1f99, #D76D77, #f1995f);
@@ -193,7 +331,8 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 2; }
   .PortfolioShowcase .close-component {
     width: 8rem;
     height: 8rem;
@@ -326,9 +465,10 @@ html, body {
       @media only screen and (max-width: 1150px) {
         .ContactPanel.panel .intro p {
           margin-top: .5rem; } }
-      .ContactPanel.panel .intro p span {
+      .ContactPanel.panel .intro p .contact-mail {
         color: #f5c378;
-        font-style: italic; }
+        font-style: italic;
+        text-decoration: none; }
     .ContactPanel.panel .intro > div {
       height: 70%;
       border-right: 1px solid white;
