@@ -465,9 +465,10 @@ html, body {
       @media only screen and (max-width: 1150px) {
         .ContactPanel.panel .intro p {
           margin-top: .5rem; } }
-      .ContactPanel.panel .intro p span {
+      .ContactPanel.panel .intro p .contact-mail {
         color: #f5c378;
-        font-style: italic; }
+        font-style: italic;
+        text-decoration: none; }
     .ContactPanel.panel .intro > div {
       height: 70%;
       border-right: 1px solid white;
