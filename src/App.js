@@ -7,13 +7,17 @@ import projects from './fixtures/projects';
 import Navigation from './components/Navigation';
 
 class App extends Component {
-  state = {
-    projects: [],
-    displayProjects: false,
-    translateX: 0,
-    currentSlide: 0,
-    recentlyScrolled: false,
-    progressMove: 0
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      projects: [],
+      displayProjects: false,
+      translateX: 0,
+      currentSlide: 0,
+      recentlyScrolled: false,
+      progressMove: 0
+    }
   }
 
   componentDidMount() {
