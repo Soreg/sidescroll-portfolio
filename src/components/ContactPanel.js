@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import SocialGithub from './SocialGithub';
 
 const ContactPanel = () => {
     return(
@@ -34,12 +35,7 @@ const ContactPanel = () => {
                 </div>
                 <div className="social-icons">
                     <div>
-                        <a className="social-link" href="https://github.com/Soreg" target="_blank" rel="noopener noreferrer">
-                        <FontAwesome 
-                            className="social-icon"
-                            name="github" 
-                        />
-                        </a>
+                        <SocialGithub />
                         <a className="social-link" href="https://www.linkedin.com/in/soreg/" target="_blank"rel="noopener noreferrer">
                         <FontAwesome 
                             className="social-icon"
