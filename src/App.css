@@ -597,8 +597,8 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    left: -10%;
-    width: 120%;
+    left: -25%;
+    width: 150%;
     text-align: center;
     position: absolute;
     top: -8rem;
@@ -614,7 +614,12 @@ html, body {
       transform: translateY(0); }
     .social-icon .data-info-github {
       height: 7.5rem; }
+    .social-icon .data-info-linkedin {
+      top: -2.5rem; }
+    .social-icon .data-info-twitter {
+      top: -2.5rem; }
     .social-icon .data-info p {
       margin: 0;
       padding: 0 .2rem;
-      font-size: 1.4rem; }
+      font-size: 1.6rem;
+      letter-spacing: .08rem; }
