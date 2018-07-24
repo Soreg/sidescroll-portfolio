@@ -18,9 +18,8 @@ const PortfolioPanel = ({ showcaseProjects, openPortfolio }) => {
                     <div className="intro-container">
                     <h2>Portfolio</h2>
                     <div>
-                        <p>As a passionate web developer, I have made a bunch of personal projects.</p>
-                        <p>Most projects are front-end based, but some also takes advantage of some API's, like the weather app.</p>
-                        <p>A few of the project are also made during collaboration with other developers</p>
+                        <p>I have made a few personal projects throughout my programming journey, which I have chosen to share on my portfolio.</p>
+                        <p>Some of my projects, like the DevMOP extension, are made in collaboration with other passionate developers.</p>
                     </div>
                     <p className="link" onClick={openPortfolio}>View All Projects</p>
                     </div>
