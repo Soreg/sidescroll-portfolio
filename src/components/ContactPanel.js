@@ -12,8 +12,10 @@ const ContactPanel = () => {
                 <div className="intro">
                     <div>
                         <h2>Contact</h2>
-                        <p>I am always looking for more work or collaborations, and can always be contacted directly through this contact form!</p>
-                        <p>If you prefer E-Mail, I can also be contacted directly through <a href="mailto:contact@sgcoding.media" className="contact-mail">contact@sgcoding.media</a></p>
+                        <div className="intro-text">
+                            <p>I can always be contacted through the contact form if you wish to collaborate on a future project, or simply want to have a casual chat.</p>
+                            <p>If you prefer direct E-Mail, I can also be contacted directly through <a href="mailto:contact@sgcoding.media" className="contact-mail">contact@sgcoding.media</a></p>
+                        </div>
                     </div>
                 </div>
                 <div className="form">
