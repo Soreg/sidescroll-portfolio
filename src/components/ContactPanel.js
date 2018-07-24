@@ -2,6 +2,7 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import SocialGithub from './SocialGithub';
 import SocialLinkedin from './SocialLinkedin';
+import SocialTwitter from './SocialTwitter';
 
 const ContactPanel = () => {
     return(
@@ -38,12 +39,7 @@ const ContactPanel = () => {
                     <div>
                         <SocialGithub />
                         <SocialLinkedin />
-                        <a className="social-link" href="https://twitter.com/SorenWebDev" target="_blank" rel="noopener noreferrer">
-                        <FontAwesome 
-                            className="social-icon"
-                            name="twitter" 
-                        />
-                        </a>
+                        <SocialTwitter />
                     </div>
                 </div>
             </div>
