@@ -11,7 +11,9 @@ const PortfolioPanel = ({ showcaseProjects, openPortfolio }) => {
         <div id="Portfolio" className="PortfolioPanel panel">
         <div className="overlay"></div>
             <div className="container">
-            { projects }
+            <div className="projects-container flex-cell">
+                { projects }
+            </div>
                 <div className="flex-cell portfolio-intro">
                     <div className="intro-container">
                     <h2>Portfolio</h2>

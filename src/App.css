@@ -258,11 +258,18 @@ html, body {
     @media only screen and (max-width: 1150px) {
       .PortfolioPanel.panel .container {
         flex-direction: column-reverse; } }
+    .PortfolioPanel.panel .container .projects-container {
+      flex: 2;
+      display: flex;
+      flex-direction: row-reverse; }
   .PortfolioPanel.panel .portfolio-showcase {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    transition: all ease .5s; }
+    .PortfolioPanel.panel .portfolio-showcase:hover {
+      flex: 1.1; }
     @media only screen and (max-width: 1150px) {
       .PortfolioPanel.panel .portfolio-showcase {
         flex-direction: row;
@@ -284,7 +291,6 @@ html, body {
     .PortfolioPanel.panel .portfolio-showcase .img-container {
       width: 100%;
       height: 50%;
-      flex: 1;
       padding-bottom: 2rem;
       padding-top: 2rem; }
       @media only screen and (max-width: 1150px) {
@@ -304,8 +310,7 @@ html, body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 5rem;
-      flex: 1; }
+      padding: 5rem; }
       @media only screen and (max-width: 1150px) {
         .PortfolioPanel.panel .portfolio-showcase .description {
           padding: 2rem; } }
