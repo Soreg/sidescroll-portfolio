@@ -467,10 +467,14 @@ html, body {
     display: flex;
     align-items: center;
     text-align: center; }
+    .ContactPanel.panel .intro .intro-text {
+      height: 89%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly; }
     .ContactPanel.panel .intro p {
       margin: 0;
-      font-size: 2rem;
-      margin-top: 4rem; }
+      font-size: 2rem; }
       @media only screen and (max-width: 1150px) {
         .ContactPanel.panel .intro p {
           margin-top: .5rem; } }
