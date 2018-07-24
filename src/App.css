@@ -614,6 +614,10 @@ html, body {
       transform: translateY(0); }
     .social-icon .data-info-github {
       height: 7.5rem; }
+    .social-icon .data-info-linkedin {
+      top: -2.5rem; }
+    .social-icon .data-info-twitter {
+      top: -2.5rem; }
     .social-icon .data-info p {
       margin: 0;
       padding: 0 .2rem;
