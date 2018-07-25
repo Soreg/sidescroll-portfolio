@@ -1,0 +1,159 @@
+.PortfolioShowcase {
+    background: linear-gradient(to top left, #2c3e50, #3498db);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    .close-component {
+        width: 8rem;
+        height: 8rem;
+        position: fixed;
+        top: 1rem;
+        right: 3rem;
+        cursor: pointer;
+        opacity: .6;
+        transition: all ease .6s;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        &:before, &:after {
+            position: absolute;
+            left: 3.5rem;
+            content: ' ';
+            height: 100%;
+            width: .6rem;
+            border-radius: 1rem;
+            background-color: white;
+
+            @include break(1150) {
+                left: 5rem;
+                height: 80%;
+                width: .5rem;
+            }
+
+            @include break(760) {
+                left: 6rem;
+                height: 60%;
+                width: .3rem;
+            }
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .projects {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+
+        .PortfolioProject {
+            min-width: 50%;
+            flex: 1;
+            height: 600px;
+            padding: 1rem;
+
+            @include break(1150) {
+                min-width: 100%;
+                display: flex;
+                height: auto;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row-reverse;
+
+                &:nth-child(odd) {
+                    flex-direction: row;
+                }
+            }
+
+            @include break(760) {
+                flex-direction: column-reverse;
+
+                &:nth-child(odd) {
+                    flex-direction: column-reverse;
+                }
+            }
+
+            .img-container {
+                margin-top: 1rem;
+                width: 100%;
+                height: 50%;
+
+                @include break(1150) {
+                    height: 90%;
+                    flex: 1;
+                }
+
+                @include break(760) {
+                    height: 50%;
+                    flex: 1;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .description {
+                display: flex;
+                flex-direction: column;
+                height: 40%;
+                margin-top: 1rem;
+                justify-content: space-between;
+                text-align: center;
+
+                @include break(1150) {
+                    height: 90%;
+                    flex: 1;
+                    padding: 2rem;
+                }
+
+                @include break(760) {
+                    height: 50%;
+                    flex: 1;
+                    padding: 1.5rem;
+                }
+            }
+
+            .link-container {
+                text-align: center;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                font-size: 2rem;
+                margin: 0;
+                padding: 0 4rem;
+
+                a {
+                    font-size: 2rem;
+                    margin: 0;
+                    
+                }
+            }
+
+            a {
+                text-align: center;
+            }
+
+        }
+    }
+}

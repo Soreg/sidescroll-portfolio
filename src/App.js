@@ -1,68 +1,48 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import './App.css';
 
 import Panel from './components/Panel';
 import PortfolioShowcase from './components/PortfolioShowcase';
+import projects from './fixtures/projects';
+import Navigation from './components/Navigation';
 
 class App extends Component {
-  state = {
-    projects: [],
-    displayProjects: undefined
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      helmetTitle: '',
+      projects: [],
+      displayProjects: false,
+      translateX: 0,
+      currentSlide: 0,
+      recentlyScrolled: false,
+      progressMove: 0
+    }
+
+    this.updateHelmet = this.updateHelmet.bind(this);
   }
 
-  componentWillMount() {
-    this.setState({projects: [
-      {
-        name: 'Voyage Clone',
-        languages: ['HTML /', ' CSS /', ' Javascript /', ' jQuery /', ' SCSS /', ' Git'],
-        description: 'Voyage Clone is a clone of <a href="https://freebiesbug.com/psd-freebies/voyage-free-travel-template-psd/" target="_blank">this</a> website template, and it is the first in an on-going series of website clones.',
-        link: 'http://sorendev-voyage-clone.surge.sh/',
-        image: 'https://image.ibb.co/mH3svH/Voyage_Clone.png',
-        backgroundColor: '#3f5973'
-      },
-      {
-        name: 'ReactJS Weather App',
-        languages: ['ReactJS / JavaScript / CSS / Git'],
-        description: "The ReactJS Weather App fetches today's weather from OpenWeatherMap",
-        link: 'http://sorendev-react-weather-app.herokuapp.com/',
-        image: 'https://image.ibb.co/j2Z5cd/weather_app2.jpg',
-        backgroundColor: '#c55220'
-      },
-      {
-        name: 'Visual Weather',
-        languages: ['HTML /', ' CSS /', ' Javascript /', ' jQuery /', ' API /', ' JSON'],
-        description: 'Visual Weather is an on-going personal project. It displays the local weather to a set of 4 animated "weather cards", based on the city you are searching for.',
-        link: 'https://visual-weather.surge.sh/',
-        image: 'https://image.ibb.co/dXb2Aw/Visual.png',
-        backgroundColor: '#7c7e9b'
-      },
-      {
-        name: 'DevMOP Chrome Extension',
-        languages: ['Html /', ' CSS /', ' Javascript /', ' jQuery /', ' Api /', ' JSON'],
-        description: 'DevMOP is a Chrome Extension aimed towards developers. The main goal is to keep developers focused and motivated by giving them a set of tools. DevMop was made in collaboration with <a href="https://github.com/fatizhf" target="_blank"><span className="text-shoutout">Fatima</span></a> and <a href="https://github.com/mussol" target="_blank"><span classname="text-shoutout">Mussol</span></a>',
-        link: 'https://chrome.google.com/webstore/detail/devmop/nbnbhmpifhipmfckccbhelhmbkccejbc',
-        image: 'https://image.ibb.co/iHDXAw/dev_Mop_Screen.png',
-        backgroundColor: '#52708e'
-      },
-      {
-        name: 'Famous Quotes',
-        languages: ['React /', ' CSS /', ' Javascript /', ' jQuery /', ' API /', ' JSON'],
-        description: 'Famous Quotes is a small project made in collaboration with <a href="https://www.linkedin.com/in/alison-bearden-060938145/" target="_blank"><span className="text-shoutout">Alison</span></a>. It uses JSON to fetch a random quote from their library, split up in "Movie" and "Famous" categories.',
-        link: 'http://famousquotes.surge.sh/',
-        image: 'https://image.ibb.co/dcxsAw/Famous_Quotes.png',
-        backgroundColor: '#206ca0'
-      },
-      {
-        name: 'Outdoor Haderslev',
-        languages: ['HTML /', ' CSS /', ' PHP'],
-        description: 'Outdoor Haderslev is a danish site, and was an assignment given to me at a local bootcamp. Outdoor Haderslev uses a free Wordpress theme, which has been customized with Html and Css.',
-        link: 'http://www.sgcoding.media/outdoor-haderslev/',
-        image: 'https://image.ibb.co/bVX9qw/Outdoor_Haderslev.png',
-        backgroundColor: '#85870c'
-      }
-    ],
-    displayProjects: false
-  });
+  componentDidMount() {
+    window.addEventListener('wheel', this.handleScroll);
+    window.addEventListener('keydown', this.handleScroll);
+    this.updateHelmet();
+  }
+
+  updateHelmet = () => {
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if(browserWidth > 1150) {
+      const title = document.querySelector('.Navigation .active').dataset.title;
+      this.setState({
+        helmetTitle: title
+      });
+    }
+    else {
+      this.setState({
+        helmetTitle: 'SorenDev'
+      });
+    }
   }
 
   openPortfolio = () => {
@@ -77,14 +57,118 @@ class App extends Component {
     })
   }
 
+  scrollMechanic = (scrollDirection, scrollAmount=1) => {
+    if(!this.state.displayProjects) {
+    // Scroll mechanics
+    const panelAmount = document.querySelectorAll('.panel').length;
+    const panelWidth = document.querySelector('.panel').offsetWidth;
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    // Navigation mechanics
+    const menuCounter = document.querySelectorAll('.Navigation li').length;
+    const barWidth = document.querySelector('.line').offsetWidth;
+    const distanceBetween = barWidth / (menuCounter-1);
+
+    // if delay is gone
+    if(!this.state.recentlyScrolled) {
+      
+      if(scrollDirection === "up") {
+        if(this.state.currentSlide >= 1 && !this.state.displayProjects && browserWidth > 1150) {
+          this.setState((prevState) => ({
+            currentSlide: prevState.currentSlide - scrollAmount,
+            translateX: prevState.translateX + (panelWidth * scrollAmount),
+            progressMove: prevState.progressMove - (distanceBetween * scrollAmount)
+          }), () => {
+            // Runs after states are changed
+            const activeNav = document.querySelector('.active');
+            activeNav.classList.remove('active');
+            const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
+            currentNavItem.classList.add('active');
+
+            // Adjust opacity
+            const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide + scrollAmount];
+            const overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
+            prevOverlay.style.opacity = ".3";
+            overlay.style.opacity = "0";
+            this.updateHelmet();
+
+          }); 
+        }
+      } else if(scrollDirection === "down") {
+        if(this.state.currentSlide < panelAmount-1 && !this.state.displayProjects  && browserWidth > 1150) {
+          this.setState((prevState) => ({
+            currentSlide: prevState.currentSlide + scrollAmount,
+            translateX: prevState.translateX - (panelWidth * scrollAmount),
+            progressMove: prevState.progressMove + (distanceBetween * scrollAmount)
+          }), () => {
+            const activeNav = document.querySelector('.active');
+            activeNav.classList.remove('active');
+            const currentNavItem = document.querySelectorAll('.Navigation a')[this.state.currentSlide];
+            currentNavItem.classList.add('active');
+
+            const prevOverlay = document.querySelectorAll('.overlay')[this.state.currentSlide - scrollAmount];
+            var overlay = document.querySelectorAll('.overlay')[this.state.currentSlide];
+            prevOverlay.style.opacity = ".3";
+            overlay.style.opacity = "0";
+            this.updateHelmet();
+
+          });
+        }
+      }
+      this.setState({
+        recentlyScrolled: true
+      });
+      setTimeout(() => {
+        this.setState({recentlyScrolled: false});
+      }, 800)
+    }
+    }
+
+    var target = document.getElementsByClassName('overlay')[this.state.currentSlide];
+    target.style.opacity = "0";
+  }
+
+  handleScroll = (e) => {
+    let direction = "";
+    if(e.deltaY < 0 || e.key === "ArrowLeft") {
+      direction = "up";
+    } else if(e.deltaY > 0 || e.key === "ArrowRight") {
+      direction = "down";
+    }
+    this.scrollMechanic(direction);
+  }
+
+  handleNavigation = (e) => {
+    var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if(browserWidth > 1150) {
+      e.preventDefault();
+    }
+
+    const panelTo = e.currentTarget.attributes.getNamedItem('data-panel').value;
+    const panelsToSlide = Math.abs(panelTo - this.state.currentSlide);
+
+    let direction = "";
+
+    if(panelTo - this.state.currentSlide < 0) {
+      direction = "up";
+    } else if(panelTo - this.state.currentSlide > 0) {
+      direction = "down";
+    }
+
+    this.scrollMechanic(direction, panelsToSlide);
+  }
 
   render() {
-    const showcaseProjects = this.state.projects.slice(0, 2);
+    const showcaseProjects = projects.slice(0, 2);
     
     return (
       <div className="App">
-        <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio}/>
-        { this.state.displayProjects ? <PortfolioShowcase projects={this.state.projects} closePortfolio={this.closePortfolio}/> : null}
+      <Helmet>
+        <title>{this.state.helmetTitle === 'SorenDev' ? this.state.helmetTitle : this.state.helmetTitle + ' - SorenDev'}</title>
+      </Helmet>
+        <Panel showcaseProjects={showcaseProjects} openPortfolio={this.openPortfolio} moveLeft={this.state.translateX}/>
+        { this.state.displayProjects ? <PortfolioShowcase projects={projects} closePortfolio={this.closePortfolio}/> : null}
+        <Navigation handleNavigation={this.handleNavigation} progressMove={this.state.progressMove}/>
       </div>
     );
   }

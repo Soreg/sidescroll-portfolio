@@ -1,0 +1,19 @@
+.WelcomePanel.panel {
+    background: linear-gradient(to top right, rgb(74, 31, 153), #D76D77, rgb(241, 153, 95));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        flex-direction: column;
+
+        @include break(760) {
+            padding: 2.5rem;
+        }
+    }
+
+    h1 {
+        margin-bottom: 3.5rem;
+    }
+}

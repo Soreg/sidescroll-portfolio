@@ -1,0 +1,67 @@
+.panel-wrapper {
+    backface-visibility: hidden;
+    transition: all ease 1s;
+    align-self: flex-start;
+    
+
+    > div {
+        height: 80vh;
+        min-height: 45rem;
+        max-height: 60rem;
+        display: flex;
+        color: white;
+        -webkit-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+        -moz-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+        box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+
+        @include break(1150) {
+            display: block;
+            height: auto;
+        }
+    }
+
+    .panel {
+        height: 100%;
+        position: relative;
+        padding: 0 0 0px !important;
+
+        .overlay {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: .3;
+            transition: all ease 1s;
+            pointer-events: none;
+
+            @include break(1150) {
+                opacity: 0;
+            }
+        }
+
+        &:first-child .overlay {
+            opacity: 0;
+        }
+
+        .container {
+            padding: 10rem;
+            display: flex;
+            width: 70vw;
+
+            @include break(1700) {
+                width: 80vw;
+            }
+
+            @include break(1280) {
+                width: 100vw;
+            }
+        }
+    }
+}
+
+.flex-cell {
+    flex: 1;
+    overflow: hidden;
+}
