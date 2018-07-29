@@ -1,20 +1,29 @@
 .panel-wrapper {
-    padding-right: 13vw;
+    backface-visibility: hidden;
     transition: all ease 1s;
+    align-self: flex-start;
+    
 
     > div {
-        height: 60rem;
+        height: 80vh;
+        min-height: 45rem;
+        max-height: 60rem;
         display: flex;
         color: white;
-        min-width: 130rem;
         -webkit-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
         -moz-box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
         box-shadow: 0px 0px 66px 13px rgba(0,0,0,0.42);
+
+        @include break(1150) {
+            display: block;
+            height: auto;
+        }
     }
 
     .panel {
         height: 100%;
         position: relative;
+        padding: 0 0 0px !important;
 
         .overlay {
             -webkit-backface-visibility: hidden;
@@ -25,7 +34,11 @@
             background: black;
             opacity: .3;
             transition: all ease 1s;
-            pointer-events: none
+            pointer-events: none;
+
+            @include break(1150) {
+                opacity: 0;
+            }
         }
 
         &:first-child .overlay {
@@ -36,7 +49,14 @@
             padding: 10rem;
             display: flex;
             width: 70vw;
-            min-width: 110rem;
+
+            @include break(1700) {
+                width: 80vw;
+            }
+
+            @include break(1280) {
+                width: 100vw;
+            }
         }
     }
 }

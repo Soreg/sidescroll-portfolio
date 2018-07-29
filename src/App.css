@@ -19,37 +19,56 @@ p, a {
   color: white; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%; }
+
+body {
+  min-height: 100%; }
 
 html, body {
   width: 100%;
   height: 100%;
   background: linear-gradient(to right, #F7F8F8, #ACBB78); }
 
+#root {
+  height: 100%; }
+
 .App {
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
   font-family: 'Oswald';
-  overflow-y: hidden;
-  overflow-x: hidden; }
+  overflow: hidden; }
+  @media only screen and (max-width: 1150px) {
+    .App {
+      height: 100%;
+      overflow-y: auto;
+      display: block; } }
 
 .panel-wrapper {
-  padding-right: 13vw;
-  transition: all ease 1s; }
+  backface-visibility: hidden;
+  transition: all ease 1s;
+  align-self: flex-start; }
   .panel-wrapper > div {
-    height: 60rem;
+    height: 80vh;
+    min-height: 45rem;
+    max-height: 60rem;
     display: flex;
     color: white;
-    min-width: 130rem;
     -webkit-box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42);
     -moz-box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42);
     box-shadow: 0px 0px 66px 13px rgba(0, 0, 0, 0.42); }
+    @media only screen and (max-width: 1150px) {
+      .panel-wrapper > div {
+        display: block;
+        height: auto; } }
   .panel-wrapper .panel {
     height: 100%;
-    position: relative; }
+    position: relative;
+    padding: 0 0 0px !important; }
     .panel-wrapper .panel .overlay {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -60,17 +79,156 @@ html, body {
       opacity: .3;
       transition: all ease 1s;
       pointer-events: none; }
+      @media only screen and (max-width: 1150px) {
+        .panel-wrapper .panel .overlay {
+          opacity: 0; } }
     .panel-wrapper .panel:first-child .overlay {
       opacity: 0; }
     .panel-wrapper .panel .container {
       padding: 10rem;
       display: flex;
-      width: 70vw;
-      min-width: 110rem; }
+      width: 70vw; }
+      @media only screen and (max-width: 1700px) {
+        .panel-wrapper .panel .container {
+          width: 80vw; } }
+      @media only screen and (max-width: 1280px) {
+        .panel-wrapper .panel .container {
+          width: 100vw; } }
 
 .flex-cell {
   flex: 1;
   overflow: hidden; }
+
+.Navigation nav {
+  left: 50vw;
+  bottom: 5rem;
+  width: 50rem;
+  z-index: 1; }
+  @media only screen and (max-width: 1150px) {
+    .Navigation nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      left: auto;
+      bottom: auto;
+      transform: translateX(0); } }
+  .Navigation nav .hamburger-menu {
+    z-index: 3;
+    display: none; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .hamburger-menu {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 4rem;
+        height: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; } }
+    .Navigation nav .hamburger-menu > div {
+      width: 100%;
+      height: .2rem;
+      background: white;
+      transition: all ease .5s; }
+      .Navigation nav .hamburger-menu > div:first-child {
+        transform-origin: 10px; }
+      .Navigation nav .hamburger-menu > div:last-child {
+        transform-origin: 1px -4px; }
+  .Navigation nav .line {
+    position: relative;
+    border: 0.1rem solid #9e0f0f;
+    height: 2rem;
+    margin-top: 2rem;
+    border-radius: 3rem;
+    overflow: hidden; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav .line {
+        display: none; } }
+    .Navigation nav .line .progress {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #dd4141;
+      left: -50rem;
+      overflow: hidden;
+      transition: all ease 1s; }
+  .Navigation nav ul {
+    height: 3rem;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between; }
+    @media only screen and (max-width: 1150px) {
+      .Navigation nav ul {
+        position: absolute;
+        top: 0;
+        left: -100vw;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(to top right, #ec5454, #5e65cc);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: all ease .5s; }
+        .Navigation nav ul li {
+          margin: .5rem 0; } }
+    .Navigation nav ul li a {
+      margin: 0;
+      text-decoration: none; }
+      .Navigation nav ul li a p {
+        margin: 0;
+        color: white;
+        transition: all ease .4s; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a p {
+            font-size: 3rem; } }
+      .Navigation nav ul li a .nav-point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 1.2rem;
+        width: 1.2rem;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 10rem;
+        transition: all ease .4s; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a .nav-point {
+            display: none; } }
+        .Navigation nav ul li a .nav-point .bullet {
+          width: .6rem;
+          height: .6rem;
+          background: transparent;
+          border-radius: 10rem;
+          transition: all ease .4s; }
+      .Navigation nav ul li a.active p {
+        transition: all ease 1s; }
+      .Navigation nav ul li a.active .nav-point {
+        transition: all ease 1s; }
+        .Navigation nav ul li a.active .nav-point .bullet {
+          transition: all ease 1s; }
+      .Navigation nav ul li a.active p {
+        color: #b50000; }
+        @media only screen and (max-width: 1150px) {
+          .Navigation nav ul li a.active p {
+            color: white; } }
+      .Navigation nav ul li a.active .nav-point .bullet {
+        background: #aa1010; }
+  .Navigation nav.show .hamburger-menu div:first-child {
+    transform: rotate(45deg); }
+  .Navigation nav.show .hamburger-menu div:nth-child(2) {
+    opacity: 0; }
+  .Navigation nav.show .hamburger-menu div:last-child {
+    transform: rotate(-45deg); }
+  .Navigation nav.show ul {
+    pointer-events: all;
+    opacity: 1; }
 
 .WelcomePanel.panel {
   background: linear-gradient(to top right, #4a1f99, #D76D77, #f1995f);
@@ -80,6 +238,9 @@ html, body {
   align-items: center; }
   .WelcomePanel.panel .container {
     flex-direction: column; }
+    @media only screen and (max-width: 760px) {
+      .WelcomePanel.panel .container {
+        padding: 2.5rem; } }
   .WelcomePanel.panel h1 {
     margin-bottom: 3.5rem; }
 
@@ -94,16 +255,58 @@ html, body {
   .PortfolioPanel.panel .container {
     padding: 0;
     flex-direction: row-reverse; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .container {
+        flex-direction: column-reverse; } }
+    .PortfolioPanel.panel .container .projects-container {
+      flex: 2;
+      display: flex;
+      flex-direction: row-reverse; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .container .projects-container {
+          flex-direction: column-reverse; } }
   .PortfolioPanel.panel .portfolio-showcase {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    transition: all ease .5s;
+    flex: 1; }
+    .PortfolioPanel.panel .portfolio-showcase:hover {
+      flex: 1.1; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .portfolio-showcase {
+        flex-direction: row;
+        align-items: center;
+        flex: 1 1 auto; } }
+    @media only screen and (max-width: 760px) {
+      .PortfolioPanel.panel .portfolio-showcase {
+        flex-direction: column-reverse; } }
     .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
       flex-direction: column-reverse; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
+          flex-direction: row-reverse; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-showcase:nth-child(2) {
+          flex-direction: column-reverse; } }
+      .PortfolioPanel.panel .portfolio-showcase:nth-child(2) .img-container {
+        padding-top: 0; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioPanel.panel .portfolio-showcase:nth-child(2) .img-container {
+            padding-top: 1.5rem; } }
     .PortfolioPanel.panel .portfolio-showcase .img-container {
       width: 100%;
-      height: 50%; }
+      height: 50%;
+      padding-bottom: 2rem;
+      padding-top: 2rem; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase .img-container {
+          height: 70%;
+          padding: 1.5rem 0; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-showcase .img-container {
+          padding-bottom: 2rem; } }
       .PortfolioPanel.panel .portfolio-showcase .img-container img {
         width: 100%;
         height: 100%;
@@ -115,14 +318,27 @@ html, body {
       flex-direction: column;
       justify-content: center;
       padding: 5rem; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioPanel.panel .portfolio-showcase .description {
+          padding: 2rem; } }
   .PortfolioPanel.panel .portfolio-intro {
     flex: 0.7; }
+    @media only screen and (max-width: 1150px) {
+      .PortfolioPanel.panel .portfolio-intro {
+        flex: initial; } }
     .PortfolioPanel.panel .portfolio-intro .intro-container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 5rem;
+      justify-content: center;
+      padding: 1rem;
       height: 100%; }
+      @media only screen and (max-width: 760px) {
+        .PortfolioPanel.panel .portfolio-intro .intro-container {
+          padding: 2.5rem; } }
+    .PortfolioPanel.panel .portfolio-intro .link {
+      font-size: 2.2rem;
+      text-decoration: underline;
+      cursor: pointer; }
 
 .PortfolioShowcase {
   background: linear-gradient(to top left, #2c3e50, #3498db);
@@ -131,7 +347,8 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 2; }
   .PortfolioShowcase .close-component {
     width: 8rem;
     height: 8rem;
@@ -146,12 +363,22 @@ html, body {
       transform: scale(1.1); }
     .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
       position: absolute;
-      left: 35px;
+      left: 3.5rem;
       content: ' ';
       height: 100%;
       width: .6rem;
       border-radius: 1rem;
       background-color: white; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+          left: 5rem;
+          height: 80%;
+          width: .5rem; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioShowcase .close-component:before, .PortfolioShowcase .close-component:after {
+          left: 6rem;
+          height: 60%;
+          width: .3rem; } }
     .PortfolioShowcase .close-component:before {
       transform: rotate(45deg); }
     .PortfolioShowcase .close-component:after {
@@ -166,10 +393,33 @@ html, body {
       flex: 1;
       height: 600px;
       padding: 1rem; }
+      @media only screen and (max-width: 1150px) {
+        .PortfolioShowcase .projects .PortfolioProject {
+          min-width: 100%;
+          display: flex;
+          height: auto;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row-reverse; }
+          .PortfolioShowcase .projects .PortfolioProject:nth-child(odd) {
+            flex-direction: row; } }
+      @media only screen and (max-width: 760px) {
+        .PortfolioShowcase .projects .PortfolioProject {
+          flex-direction: column-reverse; }
+          .PortfolioShowcase .projects .PortfolioProject:nth-child(odd) {
+            flex-direction: column-reverse; } }
       .PortfolioShowcase .projects .PortfolioProject .img-container {
         margin-top: 1rem;
         width: 100%;
         height: 50%; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioShowcase .projects .PortfolioProject .img-container {
+            height: 90%;
+            flex: 1; } }
+        @media only screen and (max-width: 760px) {
+          .PortfolioShowcase .projects .PortfolioProject .img-container {
+            height: 50%;
+            flex: 1; } }
         .PortfolioShowcase .projects .PortfolioProject .img-container img {
           width: 100%;
           height: 100%;
@@ -181,6 +431,16 @@ html, body {
         margin-top: 1rem;
         justify-content: space-between;
         text-align: center; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioShowcase .projects .PortfolioProject .description {
+            height: 90%;
+            flex: 1;
+            padding: 2rem; } }
+        @media only screen and (max-width: 760px) {
+          .PortfolioShowcase .projects .PortfolioProject .description {
+            height: 50%;
+            flex: 1;
+            padding: 1.5rem; } }
       .PortfolioShowcase .projects .PortfolioProject .link-container {
         text-align: center; }
       .PortfolioShowcase .projects .PortfolioProject h3 {
@@ -196,32 +456,55 @@ html, body {
         text-align: center; }
 
 .ContactPanel.panel {
-  background: linear-gradient(to top right, #464c9e, #1e418b); }
+  background: linear-gradient(to top right, #ec5454, #5e65cc); }
   .ContactPanel.panel .container {
     padding: 0;
     height: 100%; }
+    @media only screen and (max-width: 1150px) {
+      .ContactPanel.panel .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column; }
+        .ContactPanel.panel .container h2 {
+          text-align: center; } }
   .ContactPanel.panel .intro {
     padding-left: 3rem;
     flex: 1;
     height: 100%;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
+    .ContactPanel.panel .intro .intro-text {
+      height: 89%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly; }
     .ContactPanel.panel .intro p {
       margin: 0;
-      font-size: 2rem;
-      margin-top: 4rem; }
-      .ContactPanel.panel .intro p span {
+      font-size: 2rem; }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .intro p {
+          margin-top: .5rem; } }
+      .ContactPanel.panel .intro p .contact-mail {
         color: #f5c378;
-        font-style: italic; }
+        font-style: italic;
+        text-decoration: none; }
     .ContactPanel.panel .intro > div {
       height: 70%;
       border-right: 1px solid white;
       padding-right: 3rem; }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .intro > div {
+          padding: 3rem 3rem 3rem 0;
+          border-right: none; } }
   .ContactPanel.panel .form {
     flex: 3;
     display: flex;
     align-items: center;
     padding: 5rem 3rem; }
+    @media only screen and (max-width: 1150px) {
+      .ContactPanel.panel .form {
+        padding: 0 3rem; } }
     .ContactPanel.panel .form form {
       display: flex;
       justify-content: space-between;
@@ -247,6 +530,10 @@ html, body {
         font-size: 1.8rem;
         padding: .5rem;
         margin-top: 1rem; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form input {
+            margin-top: .2rem;
+            margin-bottom: 1rem; } }
       .ContactPanel.panel .form form textarea {
         margin-top: 1rem;
         width: 100%;
@@ -256,7 +543,12 @@ html, body {
         height: 70%;
         font-size: 2.5rem;
         padding: .5rem;
-        resize: none; }
+        resize: none;
+        outline: none; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form textarea {
+            height: 15rem;
+            margin-top: .2rem; } }
       .ContactPanel.panel .form form label {
         font-size: 1.8rem; }
       .ContactPanel.panel .form form button {
@@ -269,6 +561,11 @@ html, body {
         border-radius: .5rem;
         opacity: .8;
         transition: all ease .5s; }
+        @media only screen and (max-width: 1150px) {
+          .ContactPanel.panel .form form button {
+            margin: 1rem auto .5rem auto;
+            padding: 1.5rem 3rem;
+            opacity: .9; } }
         .ContactPanel.panel .form form button:hover {
           opacity: 1; }
   .ContactPanel.panel .social-icons {
@@ -285,11 +582,60 @@ html, body {
       flex-direction: column;
       justify-content: space-evenly;
       padding-left: 3rem; }
-      .ContactPanel.panel .social-icons > div a .social-icon {
-        font-size: 6rem;
-        opacity: .7;
-        transition: all .5s; }
-        .ContactPanel.panel .social-icons > div a .social-icon:hover {
-          opacity: 1;
-          text-shadow: .4rem .4rem 1rem #000;
-          transform: translateY(-0.3rem); }
+      @media only screen and (max-width: 1150px) {
+        .ContactPanel.panel .social-icons > div {
+          flex-direction: row;
+          border-left: none;
+          padding-bottom: 3rem; } }
+      .ContactPanel.panel .social-icons > div a {
+        text-decoration: none; }
+        .ContactPanel.panel .social-icons > div a .social-icon {
+          font-size: 6rem;
+          opacity: .7;
+          transition: all .5s; }
+          .ContactPanel.panel .social-icons > div a .social-icon:hover {
+            opacity: 1;
+            text-shadow: .4rem .4rem 1rem #000;
+            transform: translateY(-0.3rem); }
+          @media only screen and (max-width: 1150px) {
+            .ContactPanel.panel .social-icons > div a .social-icon {
+              margin: 0 .5rem;
+              opacity: .9; } }
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+  .social-icon .data-info {
+    opacity: 0;
+    transform: translateY(1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    left: -25%;
+    width: 150%;
+    text-align: center;
+    position: absolute;
+    top: -8rem;
+    padding: 0 .2rem .2rem .2rem;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+    transition: all ease .5s; }
+    @media only screen and (max-width: 1150px) {
+      .social-icon .data-info {
+        display: none; } }
+    .social-icon .data-info.hover {
+      opacity: 1;
+      transform: translateY(0); }
+    .social-icon .data-info-github {
+      height: 7.5rem; }
+    .social-icon .data-info-linkedin {
+      top: -2.5rem; }
+    .social-icon .data-info-twitter {
+      top: -2.5rem; }
+    .social-icon .data-info p {
+      margin: 0;
+      padding: 0 .2rem;
+      font-size: 1.6rem;
+      letter-spacing: .08rem; }
