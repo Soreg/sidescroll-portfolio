@@ -315,12 +315,18 @@ html, body {
     .PortfolioPanel.panel .portfolio-showcase .description {
       height: 50%;
       display: flex;
+      align-items: center;
       flex-direction: column;
       justify-content: center;
       padding: 5rem; }
       @media only screen and (max-width: 1150px) {
         .PortfolioPanel.panel .portfolio-showcase .description {
           padding: 2rem; } }
+      .PortfolioPanel.panel .portfolio-showcase .description p {
+        width: 350px; }
+        @media only screen and (max-width: 1150px) {
+          .PortfolioPanel.panel .portfolio-showcase .description p {
+            width: auto; } }
   .PortfolioPanel.panel .portfolio-intro {
     flex: 0.7; }
     @media only screen and (max-width: 1150px) {
